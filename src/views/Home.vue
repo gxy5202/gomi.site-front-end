@@ -87,14 +87,14 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="less">
-@import "../less/var.less";
+<style scoped lang="scss">
+@import "../scss/var.scss";
 #gomi-homePage {
 	position: relative;
 	z-index: 0;
 	width: 100%;
 	height: 100%;
-	.flex-center-center();
+	@include flex-center-center;
 	background-color: #101010;
 
 	.gomi-homePageText {
@@ -103,7 +103,7 @@ export default defineComponent({
 		font-size: 4rem;
 		color: #fff;
 		span:nth-child(2n) {
-			color: @HighLightColor;
+			color: $HighLightColor;
 		}
 	}
 	footer {
@@ -112,7 +112,7 @@ export default defineComponent({
 		width: 100%;
 		z-index: 1;
 		.gomi-homePageFooter {
-			.flex-center-center();
+			@include flex-center-center;
 			.icon-footer {
 				width: 20px;
 				height: 20px;
@@ -123,7 +123,7 @@ export default defineComponent({
 
 				&:hover {
 					path {
-						fill: @HighLightColor;
+						fill: $HighLightColor;
 					}
 				}
 			}

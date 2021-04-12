@@ -60,8 +60,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less">
-@import "./less/var.less";
+<style lang="scss">
+@import "./scss/var.scss";
 html {
 	font-size: 10px;
 	widows: 100%;

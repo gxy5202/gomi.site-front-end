@@ -100,8 +100,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="less">
-@import "../less/var.less";
+<style scoped lang="scss">
+@import "../scss/var.scss";
 .icon-menu {
 	width: 100%;
 	height: 100%;
@@ -116,7 +116,7 @@ export default defineComponent({
 		width: 30px;
 		height: 30px;
 		cursor: pointer;
-		.flex-center-center();
+		@include flex-center-center;
 		z-index: 1000;
 	}
 	.gomi-menuBox {
@@ -144,7 +144,7 @@ export default defineComponent({
 				margin: 5px;
 				cursor: pointer;
 				&:hover {
-					color: @HighLightColor;
+					color: $HighLightColor;
 				}
 			}
 		}

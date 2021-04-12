@@ -32,6 +32,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="less">
-@import "../less/var.less";
+<style scoped lang="scss">
+@import "../scss/var.scss";
 </style>

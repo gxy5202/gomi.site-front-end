@@ -1,6 +1,6 @@
-@HighLightColor: #cf3a3a;
+$HighLightColor: #cf3a3a;
 
-.flex-center-center {
+@mixin flex-center-center {
     display: flex;
     justify-content: center;
     align-items: center;
