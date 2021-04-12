@@ -40,7 +40,7 @@
 			}"
 		>
 			<ul class="gomi-menuBoxUl">
-				<li class="gomi-menuItem" v-for="(item, index) in list" :key="index">
+				<li class="gomi-menuItem" v-for="(item, index) in list" :key="index" @click="toPage(item)">
 					<span class="gomi-menuItemText">{{ item.name }}</span>
 				</li>
 			</ul>
@@ -50,11 +50,11 @@
 
 <script lang="ts">
 import { onMounted, reactive, defineComponent, PropType } from "vue";
-// import { MenuOutlined } from '@ant-design/icons-vue';
+import { useRouter } from 'vue-router';
 interface MenuItem {
 	id: string;
 	name: string;
-	url: string;
+	path: string;
 }
 
 export default defineComponent({
@@ -69,16 +69,30 @@ export default defineComponent({
 			isMenuShow: false
 		})
 
+		const router = useRouter();
+
 		const handleMenu = () => {
 			state.isMenuShow = !state.isMenuShow;
+		}
+
+		const toPage = (item: MenuItem) => {
+			router.push({
+				name: item.path,
+			})
+
+			state.isMenuShow = false;
 		}
 
 		onMounted(() => { });
 
 		return {
 			state,
-			handleMenu
+			handleMenu,
+			toPage
 		};
+	},
+	methods: {
+
 	},
 	components: {
 		// MenuOutlined

@@ -9,7 +9,12 @@
  * @Date: 2021-04-06 16:40:18
 -->
 <template>
-    <div id="gomi-blog"></div>
+    <div id="gomi-blog">
+        <q-btn label="My Button" />
+        <q-parallax src="https://cdn.quasar.dev/img/parallax2.jpg">
+            <h1 class="text-white">Basic</h1>
+        </q-parallax>
+    </div>
 </template>
 
 <script lang="ts">

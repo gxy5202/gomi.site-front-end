@@ -5,7 +5,6 @@
 -->
 <template>
 	<div id="gomi-homePage">
-		<Menu :list="state.menuData"></Menu>
 		<div class="gomi-homePageText">
 			<span v-for="(item, index) in state.text" :key="index">
 				{{
@@ -41,7 +40,7 @@ import { onMounted, reactive, defineComponent } from "vue";
 interface MenuItem {
 	id: string;
 	name: string;
-	url: string;
+	path: string;
 }
 
 interface Data {
@@ -49,7 +48,6 @@ interface Data {
 }
 
 interface State {
-	menuData: MenuItem[];
 	footerData: any[];
 	text: any[];
 }
@@ -58,38 +56,6 @@ export default defineComponent({
 	props: {},
 	setup: () => {
 		const state: State = reactive({
-			menuData: [
-				{
-					id: "0",
-					name: "Blog",
-					url: "https://www.baidu.com",
-				},
-				{
-					id: "1",
-					name: "Coding",
-					url: "https://www.baidu.com",
-				},
-				{
-					id: "2",
-					name: "Power Point",
-					url: "https://www.baidu.com",
-				},
-				{
-					id: "3",
-					name: "Video",
-					url: "https://www.baidu.com",
-				},
-				{
-					id: "4",
-					name: "Music",
-					url: "https://www.baidu.com",
-				},
-				{
-					id: "5",
-					name: "About Me",
-					url: "https://www.baidu.com",
-				},
-			],
 			text: ["M", "a", "de", " i", "n ", "C", "hina"],
 			footerData: [
 				{

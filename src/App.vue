@@ -4,28 +4,58 @@
  * @Date: 2021-04-06 16:37:22
 -->
 <template>
-	<Home />
+	<Menu :list="state.menuData"></Menu>
+	<router-view></router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import Home from "./views/Home.vue";
+import { defineComponent, ref, reactive } from "vue";
+import Menu from './components/Menu.vue';
 
 export default defineComponent({
 	name: "App",
 	setup() {
-		const position = ref([0, 0]);
-
-		document.addEventListener('mousemove', (e) => {
-			console.log(e);
-			const { clientX, clientY } = e;
-			position.value = [clientX, clientY];
+		const state = reactive({
+			menuData: [
+				{
+					id: "0",
+					name: "Blog",
+					path: 'blog'
+				},
+				{
+					id: "1",
+					name: "Coding",
+					path: 'coding'
+				},
+				{
+					id: "2",
+					name: "Power Point",
+					path: 'powerpoint'
+				},
+				{
+					id: "3",
+					name: "Video",
+					path: 'video'
+				},
+				{
+					id: "4",
+					name: "Music",
+					path: 'music'
+				},
+				{
+					id: "5",
+					name: "About Me",
+					path: 'about'
+				},
+			]
 		});
 
-		return { position };
+		return {
+			state
+		}
 	},
 	components: {
-		Home,
+		Menu
 	},
 });
 </script>
