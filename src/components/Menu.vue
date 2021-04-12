@@ -1,0 +1,149 @@
+<!--
+ * @description: 导航菜单
+ * @Author: Gouxinyu
+ * @Date: 2021-04-06 16:40:18
+-->
+<template>
+	<nav id="gomi-menu">
+		<div class="gomi-menuBtn" @click="handleMenu">
+			<svg
+				v-if="!state.isMenuShow"
+				class="icon-menu"
+				viewBox="0 0 1024 1024"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M682.666667 768v85.333333H213.333333v-85.333333h469.333334z m213.333333-298.666667v85.333334H128v-85.333334h768z m-85.333333-298.666666v85.333333H341.333333V170.666667h469.333334z"
+					fill="#ffffff"
+				/>
+			</svg>
+
+			<svg
+				v-if="state.isMenuShow"
+				class="icon-menu"
+				viewBox="0 0 1024 1024"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M512 451.669333l211.2-211.2 60.330667 60.330667-211.2 211.2 211.2 211.2-60.330667 60.330667-211.2-211.2-211.2 211.2-60.330667-60.330667 211.2-211.2-211.2-211.2L300.8 240.469333z"
+					fill="#ffffff"
+				/>
+			</svg>
+		</div>
+		<div
+			:class="{
+				'gomi-menuBox': true,
+				'gomi-menuBox-show': state.isMenuShow,
+				'gomi-menuBox-hide': !state.isMenuShow
+			}"
+		>
+			<ul class="gomi-menuBoxUl">
+				<li class="gomi-menuItem" v-for="(item, index) in list" :key="index">
+					<span class="gomi-menuItemText">{{ item.name }}</span>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</template>
+
+<script lang="ts">
+import { onMounted, reactive, defineComponent, PropType } from "vue";
+// import { MenuOutlined } from '@ant-design/icons-vue';
+interface MenuItem {
+	id: string;
+	name: string;
+	url: string;
+}
+
+export default defineComponent({
+	name: "Menu",
+	props: {
+		list: {
+			type: Array as PropType<MenuItem[]>
+		}
+	},
+	setup: () => {
+		const state: any = reactive({
+			isMenuShow: false
+		})
+
+		const handleMenu = () => {
+			state.isMenuShow = !state.isMenuShow;
+		}
+
+		onMounted(() => { });
+
+		return {
+			state,
+			handleMenu
+		};
+	},
+	components: {
+		// MenuOutlined
+	},
+});
+</script>
+
+<style scoped lang="less">
+@import "../less/var.less";
+.icon-menu {
+	width: 100%;
+	height: 100%;
+}
+
+#gomi-menu {
+	position: absolute;
+	top: 20px;
+	right: 50px;
+	.gomi-menuBtn {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		.flex-center-center();
+		z-index: 1000;
+	}
+	.gomi-menuBox {
+		position: fixed;
+		margin: auto;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 50;
+		transform: translateY(-100%);
+		transition: 0.5s ease-in-out;
+		background-color: rgba(16, 16, 16, 0.9);
+		backdrop-filter: blur(10px);
+
+		.gomi-menuBoxUl {
+			width: 100%;
+			height: 100%;
+			padding-top: 30px;
+			.gomi-menuItem {
+				list-style-type: none;
+				color: #fff;
+				font-family: CAIBOJOGRegular;
+				font-size: 3rem;
+				margin: 5px;
+				cursor: pointer;
+				&:hover {
+					color: @HighLightColor;
+				}
+			}
+		}
+	}
+
+	.gomi-menuBox-show {
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.gomi-menuBox-hide {
+		visibility: hidden;
+		transform: translateY(-100%);
+	}
+}
+</style>
