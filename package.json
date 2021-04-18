@@ -7,6 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@quasar/extras": "^1.10.3",
+    "axios": "^0.21.1",
     "quasar": "^2.0.0-beta.12",
     "sass": "^1.32.8",
     "scss": "^0.2.4",

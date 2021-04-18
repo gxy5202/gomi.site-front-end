@@ -6,10 +6,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Blog from '../views/Blog.vue';
+import Artical from '../views/Artical.vue';
 
 const routes = [
     { name: 'home', path: '/', component: Home },
     { name: 'blog', path: '/blog', component: Blog },
+    { name: 'artical', path: '/blog/artical/:artical_id', component: Artical }
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

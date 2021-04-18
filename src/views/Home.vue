@@ -5,6 +5,7 @@
 -->
 <template>
 	<div id="gomi-homePage">
+		<Menu :isFixed="true"></Menu>
 		<div class="gomi-homePageText">
 			<span v-for="(item, index) in state.text" :key="index">
 				{{
@@ -95,7 +96,7 @@ export default defineComponent({
 	width: 100%;
 	height: 100%;
 	@include flex-center-center;
-	background-color: #101010;
+	background-color: $baseColor;
 
 	.gomi-homePageText {
 		font-family: CAIBOJOGRegular, sans-serif;

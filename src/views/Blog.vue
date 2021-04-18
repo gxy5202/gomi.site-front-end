@@ -10,17 +10,21 @@
 -->
 <template>
     <div id="gomi-blog">
-        <q-btn label="My Button" />
-        <q-parallax src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <h1 class="text-white">Basic</h1>
-        </q-parallax>
+        <Head title="Blog" class="z-top"></Head>
+        <div class="gomi-blogBody">
+            <div class="gomi-blogList">
+                <ArticalList></ArticalList>
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import Menu from "../components/Menu.vue";
-import { onMounted, reactive, defineComponent } from "vue";
-
+import { onMounted, ref, reactive, defineComponent } from "vue";
+import ArticalList from '../components/ArticalList.vue';
+import Head from '../components/Head.vue';
+import '@quasar/extras/ionicons-v5';
 export default defineComponent({
     name: "Home",
     props: {},
@@ -28,10 +32,18 @@ export default defineComponent({
     },
     components: {
         Menu,
+        Head,
+        ArticalList
     },
 });
 </script>
 
 <style scoped lang="scss">
 @import "../scss/var.scss";
+
+#gomi-blog {
+    .gomi-blogBody {
+        padding: 20px;
+    }
+}
 </style>

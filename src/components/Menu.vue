@@ -4,48 +4,43 @@
  * @Date: 2021-04-06 16:40:18
 -->
 <template>
-	<nav id="gomi-menu">
-		<div class="gomi-menuBtn" @click="handleMenu">
-			<svg
-				v-if="!state.isMenuShow"
-				class="icon-menu"
-				viewBox="0 0 1024 1024"
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-			>
+	<q-btn
+		:class="{ 'gomi-menuBtn': true, 'gomi-menuBtn-fixed': isFixed, 'z-max': true }"
+		flat
+		round
+		@click="handleMenu"
+	>
+		<q-icon v-show="!state.isMenuShow">
+			<svg class="icon-menu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M682.666667 768v85.333333H213.333333v-85.333333h469.333334z m213.333333-298.666667v85.333334H128v-85.333334h768z m-85.333333-298.666666v85.333333H341.333333V170.666667h469.333334z"
 					fill="#ffffff"
 				/>
 			</svg>
+		</q-icon>
 
-			<svg
-				v-if="state.isMenuShow"
-				class="icon-menu"
-				viewBox="0 0 1024 1024"
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-			>
+		<q-icon v-show="state.isMenuShow">
+			<svg class="icon-menu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M512 451.669333l211.2-211.2 60.330667 60.330667-211.2 211.2 211.2 211.2-60.330667 60.330667-211.2-211.2-211.2 211.2-60.330667-60.330667 211.2-211.2-211.2-211.2L300.8 240.469333z"
 					fill="#ffffff"
 				/>
 			</svg>
-		</div>
-		<div
-			:class="{
-				'gomi-menuBox': true,
-				'gomi-menuBox-show': state.isMenuShow,
-				'gomi-menuBox-hide': !state.isMenuShow
-			}"
-		>
-			<ul class="gomi-menuBoxUl">
-				<li class="gomi-menuItem" v-for="(item, index) in list" :key="index" @click="toPage(item)">
-					<span class="gomi-menuItemText">{{ item.name }}</span>
-				</li>
-			</ul>
-		</div>
-	</nav>
+		</q-icon>
+	</q-btn>
+	<div
+		:class="{
+			'gomi-menuBox': true,
+			'gomi-menuBox-show': state.isMenuShow,
+			'gomi-menuBox-hide': !state.isMenuShow
+		}"
+	>
+		<ul class="gomi-menuBoxUl">
+			<li class="gomi-menuItem" v-for="(item, index) in list" :key="index" @click="toPage(item)">
+				<span class="gomi-menuItemText">{{ item.name }}</span>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script lang="ts">
@@ -61,7 +56,43 @@ export default defineComponent({
 	name: "Menu",
 	props: {
 		list: {
-			type: Array as PropType<MenuItem[]>
+			type: Array as PropType<MenuItem[]>,
+			default: [
+				{
+					id: "0",
+					name: "Blog",
+					path: 'blog'
+				},
+				{
+					id: "1",
+					name: "Coding",
+					path: 'coding'
+				},
+				{
+					id: "2",
+					name: "Power Point",
+					path: 'powerpoint'
+				},
+				{
+					id: "3",
+					name: "Video",
+					path: 'video'
+				},
+				{
+					id: "4",
+					name: "Music",
+					path: 'music'
+				},
+				{
+					id: "5",
+					name: "About Me",
+					path: 'about'
+				},
+			]
+		},
+		isFixed: {
+			type: Boolean as PropType<Boolean>,
+			default: false
 		}
 	},
 	setup: () => {
@@ -107,57 +138,57 @@ export default defineComponent({
 	height: 100%;
 }
 
-#gomi-menu {
-	position: absolute;
-	top: 20px;
-	right: 50px;
-	.gomi-menuBtn {
-		position: absolute;
-		width: 30px;
-		height: 30px;
-		cursor: pointer;
-		@include flex-center-center;
-		z-index: 1000;
-	}
-	.gomi-menuBox {
-		position: fixed;
-		margin: auto;
-		left: 0;
-		top: 0;
+.gomi-menuBtn-fixed {
+	position: fixed;
+	width: 30px;
+	height: 30px;
+	right: 30px;
+	top: 30px;
+}
+
+.gomi-menuBtn {
+	cursor: pointer;
+	@include flex-center-center;
+}
+.gomi-menuBox {
+	position: fixed;
+	margin: auto;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: 0.5s ease-in-out;
+	background-color: rgba(16, 16, 16, 0.9);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	.gomi-menuBoxUl {
 		width: 100%;
 		height: 100%;
-		z-index: 50;
-		transform: translateY(-100%);
-		transition: 0.5s ease-in-out;
-		background-color: rgba(16, 16, 16, 0.9);
-		backdrop-filter: blur(10px);
-
-		.gomi-menuBoxUl {
-			width: 100%;
-			height: 100%;
-			padding-top: 30px;
-			.gomi-menuItem {
-				list-style-type: none;
-				color: #fff;
-				font-family: CAIBOJOGRegular;
-				font-size: 3rem;
-				margin: 5px;
-				cursor: pointer;
-				&:hover {
-					color: $HighLightColor;
-				}
+		padding-top: 30px;
+		.gomi-menuItem {
+			list-style-type: none;
+			color: #fff;
+			font-family: CAIBOJOGRegular;
+			font-size: 3rem;
+			margin: 5px;
+			cursor: pointer;
+			&:hover {
+				color: $HighLightColor;
 			}
 		}
 	}
+}
 
-	.gomi-menuBox-show {
-		visibility: visible;
-		transform: translateY(0);
-	}
+.gomi-menuBox-show {
+	visibility: visible;
+	opacity: 1;
+	// transform: translateY(0);
+}
 
-	.gomi-menuBox-hide {
-		visibility: hidden;
-		transform: translateY(-100%);
-	}
+.gomi-menuBox-hide {
+	visibility: hidden;
+	opacity: 0;
+	// transform: translateY(-100%);
 }
 </style>

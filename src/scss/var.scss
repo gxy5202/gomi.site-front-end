@@ -1,7 +1,27 @@
 $HighLightColor: #cf3a3a;
+$baseColor: #101010;
+$headColor: #272626;
+$cardColor: #1b1a1a;
+$fontColor: #dfdede;
+$preColor: #303030;
+
+@font-face {
+    font-family: CAIBOJOGRegular;
+    src: url("../assets/fonts/CAIBOJOGRegular.ttf");
+}
 
 @mixin flex-center-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.gomi-h3 {
+    font-size: 1.3em;
+    line-height: 1.3em;
+    margin-block-start: 0px;
+    margin-block-end: 1em;
+    letter-spacing: 0.0125em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

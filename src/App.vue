@@ -4,7 +4,6 @@
  * @Date: 2021-04-06 16:37:22
 -->
 <template>
-	<Menu :list="state.menuData"></Menu>
 	<router-view></router-view>
 </template>
 
@@ -15,43 +14,8 @@ import Menu from './components/Menu.vue';
 export default defineComponent({
 	name: "App",
 	setup() {
-		const state = reactive({
-			menuData: [
-				{
-					id: "0",
-					name: "Blog",
-					path: 'blog'
-				},
-				{
-					id: "1",
-					name: "Coding",
-					path: 'coding'
-				},
-				{
-					id: "2",
-					name: "Power Point",
-					path: 'powerpoint'
-				},
-				{
-					id: "3",
-					name: "Video",
-					path: 'video'
-				},
-				{
-					id: "4",
-					name: "Music",
-					path: 'music'
-				},
-				{
-					id: "5",
-					name: "About Me",
-					path: 'about'
-				},
-			]
-		});
 
 		return {
-			state
 		}
 	},
 	components: {
@@ -63,7 +27,7 @@ export default defineComponent({
 <style lang="scss">
 @import "./scss/var.scss";
 html {
-	font-size: 10px;
+	font-size: 16px;
 	widows: 100%;
 	height: 100%;
 
@@ -72,12 +36,8 @@ html {
 		height: 100%;
 		margin: 0;
 		padding: 0;
+		background-color: $baseColor;
 	}
-}
-
-@font-face {
-	font-family: CAIBOJOGRegular;
-	src: url("./assets/fonts/CAIBOJOGRegular.ttf");
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
