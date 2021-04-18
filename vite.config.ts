@@ -12,7 +12,7 @@ export default {
     port: 8000,
     proxy: {
       '/api': {
-        target: 'http://172.21.178.1:3000/',
+        target: 'http://115.159.153.183:3000/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

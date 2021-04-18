@@ -16,11 +16,15 @@ import Head from '../components/Head.vue';
 import ArticalContent from '../components/ArticalContent.vue';
 import axios from '../utils/axios';
 import { useRouter } from 'vue-router';
+
+interface State {
+    artical: any
+}
 export default defineComponent({
     name: "Artical",
     props: {},
     setup: () => {
-        const state = reactive({
+        const state: State = reactive({
             artical: {},
         })
         const router = useRouter();

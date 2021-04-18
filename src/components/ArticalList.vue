@@ -51,11 +51,17 @@ import { useRouter } from 'vue-router';
 import ArticalCard from './ArticalCard.vue';
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
+
+interface State {
+    tab: string,
+    currentPage: any,
+    articalList: any[]
+}
 export default defineComponent({
     name: "ArticalList",
     props: {},
     setup() {
-        const state = reactive({
+        const state: State = reactive({
             tab: 'Recently',
             currentPage: {
                 pageNo: 1,
