@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, reactive, defineComponent, PropType } from "vue";
+import { onMounted, reactive, inject, defineComponent, PropType } from "vue";
 import { useRouter } from 'vue-router';
 interface MenuItem {
 	id: string;

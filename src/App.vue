@@ -8,13 +8,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent, ref, reactive, provide, readonly } from "vue";
 import Menu from './components/Menu.vue';
 
 export default defineComponent({
 	name: "App",
 	setup() {
-
+		const searchValue = ref<string>('');
+		const updateSearchValue = (value: string) => {
+			searchValue.value = value;
+		}
+		provide('searchValue', searchValue);
+		provide('updateSearchValue', updateSearchValue);
 		return {
 		}
 	},

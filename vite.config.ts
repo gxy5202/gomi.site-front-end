@@ -8,13 +8,16 @@ import vue from '@vitejs/plugin-vue'
 // import styleImport from 'vite-plugin-style-import';
 // https://vitejs.dev/config/
 export default {
+  build: {
+    minify: true
+  },
   server: {
     port: 8000,
     proxy: {
       '/api': {
-        target: 'http://115.159.153.183:3000/',
+        target: 'http://172.21.178.1:3000/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        // rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   },

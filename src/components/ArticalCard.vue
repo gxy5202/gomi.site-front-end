@@ -8,16 +8,41 @@
         <q-card-section>
             <h3 class="gomi-h3">{{ title }}</h3>
         </q-card-section>
-        <q-card-actions align="right">
-            <div class="gomi-articalCard-info">
-                <q-icon class="gomi-articalCard-infoIcon" flat round color="red" name="visibility" />
-                <span>{{ views }}</span>
+        <div class="gomi-articalCard-actions">
+            <div class="gomi-articalCard-actionsLeft">
+                <q-chip
+                    v-for="(item, index) in tags.split(',')"
+                    :key="index"
+                    clickable
+                    icon="bookmark"
+                    text-color="white"
+                    color="red"
+                    size="sm"
+                >{{ item }}</q-chip>
             </div>
-            <div class="gomi-articalCard-info">
-                <q-icon class="gomi-articalCard-infoIcon" flat round color="red" name="schedule" />
-                <span>{{ new Date(date).toLocaleDateString() }}</span>
+            <div class="gomi-articalCard-actionsRight">
+                <div class="gomi-articalCard-info">
+                    <q-icon
+                        class="gomi-articalCard-infoIcon"
+                        flat
+                        round
+                        color="red"
+                        name="visibility"
+                    />
+                    <span>{{ transformNumber(views) }}</span>
+                </div>
+                <div class="gomi-articalCard-info">
+                    <q-icon
+                        class="gomi-articalCard-infoIcon"
+                        flat
+                        round
+                        color="red"
+                        name="schedule"
+                    />
+                    <span>{{ new Date(date).toLocaleDateString() }}</span>
+                </div>
             </div>
-        </q-card-actions>
+        </div>
     </q-card>
 </template>
 
@@ -43,12 +68,29 @@ export default defineComponent({
             default: 0
         },
         views: {
-            type: Number,
+            required: true,
+            type: Number || String,
             default: 0
+        },
+        tags: {
+            type: String,
+            default: ''
         }
     },
     setup() {
+        const transformNumber = (value: any): string => {
+            const num = Number(value);
+            if (num > 999 && num < 100000) {
+                return `${(num / 1000).toFixed(1)}K`;
+            } else if (num >= 100000) {
+                return `${(num / 1000000).toFixed(2)}M`;
+            }
+            return String(num);
+        }
 
+        return {
+            transformNumber
+        }
     },
     components: {
     },
@@ -59,8 +101,36 @@ export default defineComponent({
 @import "../scss/var.scss";
 
 .gomi-articalCard {
-    background-color: $cardColor;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid $headColor;
     color: $fontColor;
+    min-height: 11em;
+    border-radius: 0;
+    .gomi-articalCard-actions {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 5px 15px;
+        .gomi-articalCard-actionsRight,
+        .gomi-articalCard-actionsLeft {
+            display: flex;
+            align-items: center;
+            max-width: 50%;
+        }
+
+        .gomi-articalCard-actionsRight {
+            justify-content: flex-end;
+        }
+
+        .gomi-articalCard-actionsLeft {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    }
     .gomi-articalCard-info {
         @include flex-center-center;
         margin-right: 10px;

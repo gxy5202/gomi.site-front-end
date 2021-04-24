@@ -44,6 +44,7 @@ export default defineComponent({
 #gomi-blog {
     .gomi-blogBody {
         padding: 20px;
+        margin-left: calc(100vw - 100%);
     }
 }
 </style>

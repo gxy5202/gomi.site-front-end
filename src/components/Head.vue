@@ -20,18 +20,19 @@
                     debounce="400"
                     standout
                     placeholder="search"
-                    v-model="state.searchValue"
+                    v-model="searchValue"
+                    @update:model-value="updateSearchValue"
                     input-class="text-left"
                     class="gomi-input-s"
                     type="search"
                 >
                     <template v-slot:append>
-                        <q-icon v-if="state.searchValue === ''" name="search" />
+                        <q-icon v-if="searchValue === ''" name="search" />
                         <q-icon
                             v-else
                             name="clear"
                             class="cursor-pointer"
-                            @click="state.searchValue = ''"
+                            @click="searchValue = ''"
                         />
                     </template>
                 </q-input>
@@ -42,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, reactive, defineComponent, PropType } from "vue";
+import { onMounted, ref, inject, defineComponent, PropType } from "vue";
 import { useRouter } from 'vue-router';
 import Menu from './Menu.vue';
 export default defineComponent({
@@ -58,13 +59,13 @@ export default defineComponent({
         }
     },
     setup: () => {
-        const state = reactive({
-            searchValue: '',
 
-        });
+        const searchValue = ref('');
+        const updateSearchValue = inject('updateSearchValue');
 
         return {
-            state
+            searchValue,
+            updateSearchValue
         };
     },
     methods: {
