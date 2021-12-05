@@ -1,9 +1,43 @@
-$HighLightColor: #cf3a3a;
+.bg-highlight {
+    background-color: #cf3a3a
+}
+
+.text-highlight {
+    color: #cf3a3a
+}
+
+.bg-baseColor {
+    background-color: #cf3a3a
+}
+
+.text-baseColor {
+    color: #131219
+}
+
+.headColor {
+    color: #1b1e24
+}
+
+.cardColor {
+    color: #1b1e24
+}
+
+.fontColor {
+    color: #dfdede
+}
+
+.preColor {
+    color: #303030
+}
+
+$highLightColor: #cf3a3a;
+$baseColorGradient: radial-gradient(circle, #140707, #120808, #100808, #0e0909, #0b0909);
 $baseColor: #101010;
 $headColor: #272626;
 $cardColor: #1b1a1a;
 $fontColor: #dfdede;
 $preColor: #303030;
+$borderColor: #30363d;
 
 @font-face {
     font-family: CAIBOJOGRegular;

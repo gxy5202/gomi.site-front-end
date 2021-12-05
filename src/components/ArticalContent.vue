@@ -9,7 +9,8 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref, reactive, defineComponent } from "vue";
+import { onMounted, ref, inject, defineComponent, onUpdated } from "vue";
+
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
 export default defineComponent({
@@ -21,7 +22,10 @@ export default defineComponent({
         }
     },
     setup() {
-
+        onUpdated(() => {
+            const setMounted = inject('setMounted') as any;
+            setMounted();
+        })
     },
     components: {
     },
@@ -33,9 +37,14 @@ export default defineComponent({
 
 #gomi-articalContent {
     width: 100%;
-    // color: #fff;
-    h1 {
-        color: red !important;
+    border: 1px solid $cardColor;
+    border-radius: 10px;
+    background-color: $cardColor;
+    padding: 20px;
+    @media screen and (min-width: 0) and (max-width: 600px) {
+        padding: 10px 0;
+        background-color: transparent;
+        border: none;
     }
 }
 </style>

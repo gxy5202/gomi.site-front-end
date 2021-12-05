@@ -6,7 +6,7 @@
 <template>
     <q-card class="gomi-articalCard my-card text-white">
         <q-card-section>
-            <h3 class="gomi-h3">{{ title }}</h3>
+            <h3 class="gomi-articalTitle gomi-h3">{{ title }}</h3>
         </q-card-section>
         <div class="gomi-articalCard-actions">
             <div class="gomi-articalCard-actionsLeft">
@@ -14,31 +14,18 @@
                     v-for="(item, index) in tags.split(',')"
                     :key="index"
                     clickable
-                    icon="bookmark"
                     text-color="white"
-                    color="red"
+                    color="baseColor"
                     size="sm"
                 >{{ item }}</q-chip>
             </div>
             <div class="gomi-articalCard-actionsRight">
                 <div class="gomi-articalCard-info">
-                    <q-icon
-                        class="gomi-articalCard-infoIcon"
-                        flat
-                        round
-                        color="red"
-                        name="visibility"
-                    />
+                    <q-icon class="gomi-articalCard-infoIcon" flat round name="visibility" />
                     <span>{{ transformNumber(views) }}</span>
                 </div>
                 <div class="gomi-articalCard-info">
-                    <q-icon
-                        class="gomi-articalCard-infoIcon"
-                        flat
-                        round
-                        color="red"
-                        name="schedule"
-                    />
+                    <q-icon class="gomi-articalCard-infoIcon" flat round name="schedule" />
                     <span>{{ new Date(date).toLocaleDateString() }}</span>
                 </div>
             </div>
@@ -103,17 +90,25 @@ export default defineComponent({
 .gomi-articalCard {
     background-color: transparent;
     box-shadow: none;
-    border-bottom: 1px solid $headColor;
+    border-bottom: 1px solid $borderColor;
     color: $fontColor;
     min-height: 11em;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
+
+    .gomi-articalTitle {
+        cursor: pointer;
+        &:hover {
+            color: $highLightColor;
+        }
+    }
     .gomi-articalCard-actions {
-        position: absolute;
-        bottom: 0;
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        flex: 1;
         padding: 5px 15px;
         .gomi-articalCard-actionsRight,
         .gomi-articalCard-actionsLeft {

@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import Menu from "../components/Menu.vue";
-import { onMounted, reactive, defineComponent } from "vue";
+import { onMounted, ref, reactive, defineComponent } from "vue";
 
 interface MenuItem {
 	id: string;
@@ -97,21 +97,20 @@ export default defineComponent({
 	height: 100%;
 	@include flex-center-center;
 	background-color: $baseColor;
-
 	.gomi-homePageText {
 		font-family: CAIBOJOGRegular, sans-serif;
 		font-weight: 400;
 		font-size: 4rem;
 		color: #fff;
 		span:nth-child(2n) {
-			color: $HighLightColor;
+			color: $highLightColor;
 		}
 	}
 	footer {
 		position: absolute;
 		bottom: 30px;
 		width: 100%;
-		z-index: 1;
+		z-index: -1;
 		.gomi-homePageFooter {
 			@include flex-center-center;
 			.icon-footer {
@@ -124,7 +123,7 @@ export default defineComponent({
 
 				&:hover {
 					path {
-						fill: $HighLightColor;
+						fill: $highLightColor;
 					}
 				}
 			}

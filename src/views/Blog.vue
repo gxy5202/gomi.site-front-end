@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import Menu from "../components/Menu.vue";
-import { onMounted, ref, reactive, defineComponent } from "vue";
+import { defineComponent } from "vue";
 import ArticalList from '../components/ArticalList.vue';
 import Head from '../components/Head.vue';
 import '@quasar/extras/ionicons-v5';
@@ -42,6 +42,8 @@ export default defineComponent({
 @import "../scss/var.scss";
 
 #gomi-blog {
+    height: 100%;
+    background-color: $baseColor;
     .gomi-blogBody {
         padding: 20px;
         margin-left: calc(100vw - 100%);

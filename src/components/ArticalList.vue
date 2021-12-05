@@ -9,8 +9,10 @@
         <div class="gomi-articalLeft col-md-1 col-sm-0 col-xs-0"></div>
         <div class="gomi-articalCenter col-md-8 col-sm-8 col-xs-12">
             <q-tabs
-                class="text-red gomi-articalTabType"
+                class="text-white gomi-articalTabType"
                 v-model="state.tab"
+                indicator-color="highlight"
+                active-color="highlight"
                 @update:model-value="changeTab"
                 narrow-indicator
                 dense
@@ -69,11 +71,9 @@
 
 <script lang="ts">
 import axios from '../utils/axios';
-import { watchEffect, computed, ref, reactive, inject, defineComponent } from "vue";
+import { onMounted, ref, reactive, inject, defineComponent } from "vue";
 import { useRouter } from 'vue-router';
 import ArticalCard from './ArticalCard.vue';
-// import { QIcon } from 'quasar';
-import '@quasar/extras/ionicons-v5';
 
 interface State {
     skeletonList: any[],
@@ -85,7 +85,7 @@ interface State {
 export default defineComponent({
     name: "ArticalList",
     props: {},
-    setup() {
+    setup(props, context) {
         const infiniteScroll = ref(null);
         const searchValue: string = inject('searchValue') as string;
         const colors = ['teal', 'orange', 'red', 'purple', 'green', 'blue', 'pink']
@@ -103,6 +103,8 @@ export default defineComponent({
 
         const router = useRouter();
 
+        onMounted(() => {
+        });
         /**
          * 获取文章列表
          */
@@ -150,14 +152,13 @@ export default defineComponent({
         const changeTab = (value: any) => {
             state.currentPage.pageNo = 1;
             state.articalList = [];
+            state.hasMore = true;
             (infiniteScroll as any).value.reset();
             (infiniteScroll as any).value.resume();
             (infiniteScroll as any).value.trigger();
         };
 
         getArticalTags();
-
-
         return {
             state,
             searchValue,
@@ -172,9 +173,6 @@ export default defineComponent({
             }
         }
     },
-    computed: {
-
-    },
     components: {
         ArticalCard
     },
@@ -183,16 +181,16 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import "../scss/var.scss";
+
 .gomi-articalCenter {
     background-color: $cardColor;
     border-radius: 5px;
     .gomi-articalTabType {
         margin: 10px 0;
-        border-bottom: 1px solid $headColor;
+        border-bottom: 1px solid $borderColor;
     }
     .gomi-articalItem {
         margin-bottom: 10px;
-        cursor: pointer;
 
         .gomi-articalSkeleton {
             background-color: $cardColor;

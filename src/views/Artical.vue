@@ -1,19 +1,34 @@
+<!--
+ * @description: 
+ * @Author: Gouxinyu
+ * @Date: 2021-04-18 12:42:25
+-->
 
 <template>
     <Head :title="state.artical.artical_name" :search="false"></Head>
     <div id="gomi-artical" class="row">
-        <div class="gomi-articalContentLeft col-md-3 col-sm-0"></div>
-        <div class="gomi-articalContentCenter col-md-6 col-sm-12 col-xs-12">
+        <div class="gomi-articalContentLeft col-md-1 col-sm-0"></div>
+        <div class="gomi-articalContentCenter col-md-8 col-sm-12 col-xs-12">
             <ArticalContent :content="state.artical.artical_content"></ArticalContent>
         </div>
-        <div class="gomi-articalContentRight col-md-3 col-sm-0"></div>
+        <div class="gomi-articalContentRight col-md-3 col-sm-0">
+            <TitleNav :nav-list="list" :target="target"></TitleNav>
+        </div>
+        <div></div>
     </div>
+    <q-spinner-dots
+        v-show="!state.artical.artical_name"
+        class="gomi-articalContentLoading"
+        color="red"
+        size="3.5em"
+    />
 </template>
 
 <script lang="ts">
-import { onMounted, ref, reactive, defineComponent } from "vue";
+import { onMounted, ref, reactive, defineComponent, watchEffect, provide } from "vue";
 import Head from '../components/Head.vue';
 import ArticalContent from '../components/ArticalContent.vue';
+import TitleNav from '../components/titleNav.vue';
 import axios from '../utils/axios';
 import { useRouter } from 'vue-router';
 
@@ -24,6 +39,40 @@ export default defineComponent({
     name: "Artical",
     props: {},
     setup: () => {
+        const list = ref<any[]>([]);
+        const target = ref('0');
+        const setMounted = () => {
+            ['h2'].forEach((item) => {
+                const domList = Array.from(document.querySelectorAll(item));
+                console.log(domList);
+                list.value = [...domList];
+            });
+
+            list.value = list.value.map((item, index) => {
+                return {
+                    dom: item,
+                    name: item.innerText,
+                    index
+                }
+            });
+
+            const intersectionObserver = new IntersectionObserver(function(entries) {
+                if (entries[0].intersectionRatio <= 0) return;
+
+                const { name } = entries[0].target.dataset as DOMStringMap;
+                target.value = String(name);
+                console.log(target.value);
+            });
+
+            list.value.forEach((item: any, index) => {
+                // start observing
+                item.dom.dataset.name = index;
+                intersectionObserver.observe(item.dom as HTMLElement);
+            });
+        }
+
+        provide('setMounted', setMounted);
+
         const state: State = reactive({
             artical: {},
         })
@@ -43,12 +92,15 @@ export default defineComponent({
         getArticalContent();
 
         return {
-            state
+            state,
+            list,
+            target
         }
     },
     components: {
         Head,
-        ArticalContent
+        ArticalContent,
+        TitleNav
     },
 });
 </script>
@@ -58,9 +110,17 @@ export default defineComponent({
 
 #gomi-artical {
     padding: 20px;
-    overflow-x: hidden;
     background-color: $baseColor;
     .gomi-articalContentCenter {
     }
+}
+
+.gomi-articalContentLoading {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 </style>

@@ -174,7 +174,7 @@ export default defineComponent({
 			margin: 5px;
 			cursor: pointer;
 			&:hover {
-				color: $HighLightColor;
+				color: $highLightColor;
 			}
 		}
 	}
@@ -183,6 +183,7 @@ export default defineComponent({
 .gomi-menuBox-show {
 	visibility: visible;
 	opacity: 1;
+	z-index: 99;
 	// transform: translateY(0);
 }
 
