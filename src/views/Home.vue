@@ -30,12 +30,15 @@
 					</svg>
 				</a>
 			</div>
+
+			<CopyRight></CopyRight>
 		</footer>
 	</div>
 </template>
 
 <script lang="ts">
 import Menu from "../components/Menu.vue";
+import CopyRight from '../components/CopyRight.vue';
 import { onMounted, ref, reactive, defineComponent } from "vue";
 
 interface MenuItem {
@@ -84,6 +87,7 @@ export default defineComponent({
 	},
 	components: {
 		Menu,
+		CopyRight
 	},
 });
 </script>
