@@ -6,7 +6,7 @@
 <template>
     <div class="gomi-security-info">
         <span class="gomi-copyright">Copyright © 2020-2021 Gomi &nbsp |</span>
-        <span class="gomi-info">&nbsp 蜀ICP备18020532号-1</span>
+        <span class="gomi-info" @click="toICP">&nbsp 蜀ICP备18020532号-1</span>
     </div>
 </template>
 
@@ -17,6 +17,13 @@ export default defineComponent({
     props: {
     },
     setup(props) {
+        const toICP = () => {
+            window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank');
+        }
+
+        return {
+            toICP
+        }
     }
 });
 </script>
@@ -31,5 +38,12 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .gomi-info {
+        &:hover {
+            cursor: pointer;
+            color: $highLightColor;
+        }
+    }
 }
 </style>
