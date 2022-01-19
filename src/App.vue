@@ -4,7 +4,12 @@
  * @Date: 2021-04-06 16:37:22
 -->
 <template>
-	<router-view></router-view>
+	<suspense>
+		<template v-slot:default>
+			<router-view></router-view>
+		</template>
+		<template v-slot:fallback>...</template>
+	</suspense>
 </template>
 
 <script lang="ts">

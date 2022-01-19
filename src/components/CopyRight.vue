@@ -1,11 +1,6 @@
-<!--
- * @description: 
- * @Author: Gouxinyu
- * @Date: 2021-12-13 15:53:20
--->
 <template>
     <div class="gomi-security-info">
-        <span class="gomi-copyright">Copyright © 2020-2021 Gomi &nbsp |</span>
+        <span class="gomi-copyright">Copyright © 2020-2022 Gomi &nbsp |</span>
         <span class="gomi-info" @click="toICP">&nbsp 蜀ICP备18020532号-1</span>
     </div>
 </template>

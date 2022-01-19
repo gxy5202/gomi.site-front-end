@@ -1,8 +1,3 @@
-<!--
- * @description: 
- * @Author: Gouxinyu
- * @Date: 2021-04-06 16:40:18
--->
 <template>
 	<div id="gomi-homePage">
 		<Menu :isFixed="true"></Menu>
@@ -58,7 +53,14 @@ interface State {
 export default defineComponent({
 	name: "Home",
 	props: {},
-	setup: () => {
+	async setup() {
+		// 字体加载
+		const font = new window.FontFace(
+			"CAIBOJOGRegular",
+			"url(../assets/fonts/CAIBOJOGRegular)"
+		);
+		// document.fonts.add(font);
+		await font.load();
 		const state: State = reactive({
 			text: ["M", "a", "de", " i", "n ", "C", "hina"],
 			footerData: [
