@@ -41,7 +41,10 @@ $borderColor: #30363d;
 
 @font-face {
     font-family: CAIBOJOGRegular;
-    src: url("../assets/fonts/CAIBOJOGRegular.ttf");
+    font-display: fallback;
+    /* or block, swap, fallback, optional */
+    src: local('CAIBOJOGRegular.ttf'),
+        url("../assets/fonts/CAIBOJOGRegular.ttf")
 }
 
 @mixin flex-center-center {

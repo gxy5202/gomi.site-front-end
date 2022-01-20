@@ -7,9 +7,6 @@
 					item
 				}}
 			</span>
-			<div class="gomi-homePageTextCircle">
-				<div></div>
-			</div>
 		</div>
 		<footer>
 			<div class="gomi-homePageFooter">
@@ -34,7 +31,7 @@
 <script lang="ts">
 import Menu from "../components/Menu.vue";
 import CopyRight from '../components/CopyRight.vue';
-import { onMounted, ref, reactive, defineComponent } from "vue";
+import { reactive, defineComponent } from "vue";
 
 interface MenuItem {
 	id: string;
@@ -50,17 +47,11 @@ interface State {
 	footerData: any[];
 	text: any[];
 }
+
 export default defineComponent({
 	name: "Home",
 	props: {},
-	async setup() {
-		// 字体加载
-		const font = new window.FontFace(
-			"CAIBOJOGRegular",
-			"url(../assets/fonts/CAIBOJOGRegular)"
-		);
-		// document.fonts.add(font);
-		await font.load();
+	setup() {
 		const state: State = reactive({
 			text: ["M", "a", "de", " i", "n ", "C", "hina"],
 			footerData: [
@@ -82,8 +73,6 @@ export default defineComponent({
 				}
 			]
 		});
-
-		onMounted(() => { });
 
 		return { state };
 	},

@@ -5,10 +5,10 @@
 -->
 <template>
 	<suspense>
-		<template v-slot:default>
+		<template #default>
 			<router-view></router-view>
 		</template>
-		<template v-slot:fallback>...</template>
+		<template #fallback>...</template>
 	</suspense>
 </template>
 

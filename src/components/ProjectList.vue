@@ -15,10 +15,7 @@
             >
                 <q-card class="my-card text-white gomi-project-card" dark>
                     <q-card-section>
-                        <div
-                            class="text-h6 gomi-project-card-title"
-                            @click="toTarget(item)"
-                        >{{ item.name }}</div>
+                        <div class="gomi-project-card-title" @click="toTarget(item)">{{ item.name }}</div>
                     </q-card-section>
                     <q-separator dark inset />
                     <q-card-section>
@@ -105,6 +102,7 @@ export default defineComponent({
             margin: 20px;
             flex: 1;
             .gomi-project-card-title {
+                font-size: 30px;
                 cursor: pointer;
                 &:hover {
                     color: $highLightColor !important;
