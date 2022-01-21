@@ -1,9 +1,3 @@
-<!--
- * @description: 
- * @Author: Gouxinyu
- * @Date: 2021-04-18 12:12:32
--->
-
 <template>
     <div id="gomi-project-list">
         <div id="gomi-project-list-box">
@@ -37,10 +31,16 @@ export default defineComponent({
             type: Array as PropType<any[]>,
             default: [{
                 name: 'light-ruler',
-                link: 'LightRuler',
-                demo: 'LightRuler',
+                link: 'https://www.npmjs.com/package/light-ruler',
+                // demo: 'LightRuler',
                 star: 'https://img.shields.io/github/stars/gxy5202/LightRuler',
                 des: 'A web page ruler plug-in'
+            },
+            {
+                name: 'parcel-namer-hashless',
+                link: 'https://www.npmjs.com/package/parcel-namer-hashless',
+                star: 'https://img.shields.io/github/stars/gxy5202/parcel-namer-hashless',
+                des: 'This plugin will help you remove the hash from a bundle file name(parcel v2)'
             },
             {
                 name: 'zIndexController',
