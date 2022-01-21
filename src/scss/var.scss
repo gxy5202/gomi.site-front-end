@@ -41,7 +41,7 @@ $borderColor: #30363d;
 
 @font-face {
     font-family: CAIBOJOGRegular;
-    font-display: fallback;
+    font-display: block;
     /* or block, swap, fallback, optional */
     src: local('CAIBOJOGRegular.ttf'),
         url("../assets/fonts/CAIBOJOGRegular.ttf")

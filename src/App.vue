@@ -4,12 +4,7 @@
  * @Date: 2021-04-06 16:37:22
 -->
 <template>
-	<suspense>
-		<template #default>
-			<router-view></router-view>
-		</template>
-		<template #fallback>...</template>
-	</suspense>
+	<router-view></router-view>
 </template>
 
 <script lang="ts">

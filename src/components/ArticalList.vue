@@ -186,6 +186,10 @@ export default defineComponent({
     background-color: $cardColor;
     border-radius: 5px;
     .gomi-articalTabType {
+        z-index: 1;
+        position: sticky;
+        top: 50px;
+        background-color: $cardColor;
         margin: 10px 0;
         border-bottom: 1px solid $borderColor;
     }
