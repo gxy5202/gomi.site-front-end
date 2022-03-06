@@ -22,7 +22,6 @@
 					</svg>
 				</a>
 			</div>
-
 			<CopyRight></CopyRight>
 		</footer>
 	</div>

@@ -1,6 +1,6 @@
 <template>
     <div class="gomi-security-info">
-        <span class="gomi-copyright">Copyright © 2020-2022 Gomi &nbsp |</span>
+        <span class="gomi-copyright">Copyright © 2019-{{ new Date().getFullYear() }} Gomi &nbsp |</span>
         <span class="gomi-info" @click="toICP">&nbsp 蜀ICP备18020532号-1</span>
     </div>
 </template>
@@ -9,8 +9,7 @@
 import { defineComponent } from "vue";
 export default defineComponent({
     name: "CopyRight",
-    props: {
-    },
+    props: [],
     setup(props) {
         const toICP = () => {
             window.open('https://beian.miit.gov.cn/#/Integrated/index', '_blank');

@@ -1,3 +1,8 @@
+/*
+ * @description:
+ * @Author: Gouxinyu
+ * @Date: 2021-04-06 16:37:22
+ */
 import vue from "@vitejs/plugin-vue";
 import { transformAssetUrls } from "@quasar/vite-plugin";
 // https://vitejs.dev/config/
