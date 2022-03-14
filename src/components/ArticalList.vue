@@ -1,5 +1,5 @@
 <!--
- * @description: 
+ * @description: ArticalList
  * @Author: Gouxinyu
  * @Date: 2021-04-16 21:03:11
 -->
@@ -101,10 +101,9 @@ export default defineComponent({
             hasMore: true
         });
 
+        // 路由
         const router = useRouter();
 
-        onMounted(() => {
-        });
         /**
          * 获取文章列表
          */

@@ -1,12 +1,7 @@
 <!--
- * @description: 
+ * @description: Blog
  * @Author: Gouxinyu
  * @Date: 2021-04-12 09:09:42
--->
-<!--
- * @description: 
- * @Author: Gouxinyu
- * @Date: 2021-04-06 16:40:18
 -->
 <template>
     <div id="gomi-blog">

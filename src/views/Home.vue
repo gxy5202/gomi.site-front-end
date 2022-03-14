@@ -10,7 +10,7 @@
 		</div>
 		<footer>
 			<div class="gomi-homePageFooter">
-				<a v-for="(item, index) in state.footerData" :href="item.target" target="_blank">
+				<a v-for="(item, index) in state.footerData" :href="item.target" target="_blank" :key="index">
 					<svg
 						class="icon-footer"
 						:key="index"

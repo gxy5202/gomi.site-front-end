@@ -1,5 +1,5 @@
 <!--
- * @description: 
+ * @description: content
  * @Author: Gouxinyu
  * @Date: 2021-04-18 12:12:32
 -->
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref, inject, defineComponent, onUpdated } from "vue";
+import { inject, defineComponent, onUpdated } from "vue";
 
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
