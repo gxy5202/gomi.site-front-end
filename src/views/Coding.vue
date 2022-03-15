@@ -20,6 +20,8 @@ export default defineComponent({
     name: "Coding",
     props: {},
     setup: () => {
+        // 获取列表
+        // const list = await getCodeList();
     },
     components: {
         Menu,

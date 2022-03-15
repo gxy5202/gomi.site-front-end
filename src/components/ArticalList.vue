@@ -70,7 +70,8 @@
 </template>
 
 <script lang="ts">
-import axios from '../utils/axios';
+import { get } from '../utils/axios';
+import URL from '../request/URL';
 import { onMounted, ref, reactive, inject, defineComponent } from "vue";
 import { useRouter } from 'vue-router';
 import ArticalCard from './ArticalCard.vue';
@@ -108,7 +109,7 @@ export default defineComponent({
          * 获取文章列表
          */
         const getArticals = async () => {
-            const data: any[] = await axios('get', 'blog/getArticals', { ...state.currentPage, sortType: state.tab })
+            const data: any[] = await get(URL.GET_ARTICALS, { ...state.currentPage, sortType: state.tab })
                 .catch((err) => {
                     console.error(err);
                 });
@@ -122,7 +123,7 @@ export default defineComponent({
         };
 
         const getArticalTags = async () => {
-            const data: any[] = await axios('get', 'blog/getArticalTags')
+            const data: any[] = await get(URL.GET_ARTICAL_TAGS)
                 .catch((err) => {
                     console.error(err);
                 });

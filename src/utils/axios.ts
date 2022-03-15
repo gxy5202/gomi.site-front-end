@@ -41,7 +41,7 @@ instance.interceptors.response.use(
  * @param {Object} data    请求的参数
  * @returns {Promise}     返回一个promise对象，其实就相当于axios请求数据的返回值
  */
-export default function (
+const proxyAxios = function (
     method: string,
     url: string,
     data: any = null
@@ -58,4 +58,14 @@ export default function (
     }
 
     return instance.get(url, { params: data });
+};
+
+export function get(url: string, params?: any) {
+    return proxyAxios("get", url, params);
 }
+
+export function post(url: string, params?: any) {
+    return proxyAxios("post", url, params);
+}
+
+export default proxyAxios;

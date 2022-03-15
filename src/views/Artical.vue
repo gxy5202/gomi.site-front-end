@@ -1,5 +1,5 @@
 <!--
- * @description: 
+ * @description: 文章内容
  * @Author: Gouxinyu
  * @Date: 2021-04-18 12:42:25
 -->
@@ -29,7 +29,8 @@ import { onMounted, ref, reactive, defineComponent, watchEffect, provide } from 
 import Head from '../components/Head.vue';
 import ArticalContent from '../components/ArticalContent.vue';
 import TitleNav from '../components/titleNav.vue';
-import axios from '../utils/axios';
+import { get } from '../utils/axios';
+import URL from '../request/URL';
 import { useRouter } from 'vue-router';
 
 interface State {
@@ -56,7 +57,7 @@ export default defineComponent({
                 }
             });
 
-            const intersectionObserver = new IntersectionObserver(function(entries) {
+            const intersectionObserver = new IntersectionObserver(function (entries) {
                 if (entries[0].intersectionRatio <= 0) return;
 
                 const { name } = entries[0].target.dataset as DOMStringMap;
@@ -81,7 +82,7 @@ export default defineComponent({
 
         const getArticalContent = async () => {
             const params = { artical_id };
-            const data: any = await axios('get', 'blog/getArticalContent', params)
+            const data: any = await get(URL.GET_ARTICAL_CONTENT, params)
                 .catch((err) => {
                     console.error(err);
                 });
