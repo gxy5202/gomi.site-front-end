@@ -80,9 +80,7 @@ export default defineComponent({
             searchValue,
             toTarget
         }
-    },
-    components: {
-    },
+    }
 });
 </script>
 
