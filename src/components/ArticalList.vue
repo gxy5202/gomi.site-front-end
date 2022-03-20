@@ -8,51 +8,59 @@
     <div class="gomi-articalBox row">
         <div class="gomi-articalLeft col-md-1 col-sm-0 col-xs-0"></div>
         <div class="gomi-articalCenter col-md-8 col-sm-8 col-xs-12">
-            <q-tabs
-                class="text-white gomi-articalTabType"
-                v-model="state.tab"
-                indicator-color="highlight"
-                active-color="highlight"
-                @update:model-value="changeTab"
-                narrow-indicator
-                dense
-                align="justify"
-            >
-                <q-tab :no-caps="true" :ripple="true" :tabindex="0" :name="0" label="Recently" />
-                <q-tab :no-caps="true" :ripple="true" :tabindex="1" :name="1" label="Most Views" />
-            </q-tabs>
-            <q-infinite-scroll
-                @load="onLoad"
-                :offset="250"
-                :initial-index="0"
-                debounce="400"
-                ref="infiniteScroll"
-            >
-                <div
-                    v-for="(item, index) in state.articalList.filter((item) => item.artical_name.toLowerCase().includes(searchValue.toLowerCase()))"
-                    :key="index"
-                    @click="toArtical(item.artical_id)"
-                    class="gomi-articalItem"
+            <keep-alive>
+                <q-tabs
+                    class="text-white gomi-articalTabType"
+                    v-model="state.tab"
+                    indicator-color="highlight"
+                    active-color="highlight"
+                    @update:model-value="changeTab"
+                    narrow-indicator
+                    dense
+                    align="justify"
                 >
-                    <ArticalCard
-                        :title="item.artical_name"
-                        :date="item.create_time"
-                        :author="item.artical_author"
-                        :likse="item.artical_likes"
-                        :views="item.artical_views"
-                        :tags="item.artical_tags"
-                    ></ArticalCard>
-                </div>
-                <template v-slot:loading>
-                    <div class="row justify-center q-my-md" v-show="state.hasMore">
-                        <q-spinner-dots color="red" size="40px" />
+                    <q-tab :no-caps="true" :ripple="true" :tabindex="0" :name="0" label="Recently" />
+                    <q-tab
+                        :no-caps="true"
+                        :ripple="true"
+                        :tabindex="1"
+                        :name="1"
+                        label="Most Views"
+                    />
+                </q-tabs>
+                <q-infinite-scroll
+                    @load="onLoad"
+                    :offset="250"
+                    :initial-index="0"
+                    debounce="400"
+                    ref="infiniteScroll"
+                >
+                    <div
+                        v-for="(item, index) in state.articalList.filter((item) => item.artical_name.toLowerCase().includes(searchValue.toLowerCase()))"
+                        :key="index"
+                        @click="toArtical(item.artical_id)"
+                        class="gomi-articalItem"
+                    >
+                        <ArticalCard
+                            :title="item.artical_name"
+                            :date="item.create_time"
+                            :author="item.artical_author"
+                            :likse="item.artical_likes"
+                            :views="item.artical_views"
+                            :tags="item.artical_tags"
+                        ></ArticalCard>
                     </div>
-                </template>
-                <div v-show="!state.hasMore" class="gomi-loadingEnd">
-                    <q-icon name="mood" />
-                    <span>已经到底啦~</span>
-                </div>
-            </q-infinite-scroll>
+                    <template v-slot:loading>
+                        <div class="row justify-center q-my-md" v-show="state.hasMore">
+                            <q-spinner-dots color="red" size="40px" />
+                        </div>
+                    </template>
+                    <div v-show="!state.hasMore" class="gomi-loadingEnd">
+                        <q-icon name="mood" />
+                        <span>已经到底啦~</span>
+                    </div>
+                </q-infinite-scroll>
+            </keep-alive>
         </div>
         <div class="gomi-articalRight col-md-3 col-sm-4 col-xs-0">
             <div class="gomi-articalRight-tags">
