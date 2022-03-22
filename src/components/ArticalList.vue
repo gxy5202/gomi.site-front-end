@@ -94,7 +94,7 @@ interface State {
 export default defineComponent({
     name: "ArticalList",
     props: {},
-    setup(props, context) {
+    setup() {
         const infiniteScroll = ref(null);
         const searchValue: string = inject('searchValue') as string;
         const colors = ['teal', 'orange', 'red', 'purple', 'green', 'blue', 'pink']
