@@ -63,6 +63,7 @@ export default defineComponent({
         },
     },
     setup(props) {
+        // 从后端拿
         const searchValue: string = inject('searchValue') as string;
         const router = useRouter();
         const toTarget = (item: any) => {
