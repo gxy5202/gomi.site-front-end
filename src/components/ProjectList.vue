@@ -27,6 +27,7 @@ import { useRouter } from 'vue-router';
 export default defineComponent({
     name: "ProjectList",
     props: {
+        // TODO 需要从数据库获取
         ProjectList: {
             type: Array as PropType<any[]>,
             default: [{
