@@ -44,9 +44,9 @@ export default defineComponent({
                 des: 'This plugin will help you remove the hash from a bundle file name(parcel v2)'
             },
             {
-                name: 'zIndexController',
-                link: 'https://github.com/gxy5202/zIndexController',
-                star: 'https://img.shields.io/github/stars/gxy5202/zIndexController',
+                name: 'VideoRoll',
+                link: 'https://github.com/gxy5202/VideoRoll',
+                star: 'https://img.shields.io/github/stars/gxy5202/VideoRoll',
                 des: 'A web dom z-index css style controller lib'
             },
             {
