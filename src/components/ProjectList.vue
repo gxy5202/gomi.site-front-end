@@ -47,7 +47,7 @@ export default defineComponent({
                 name: 'VideoRoll',
                 link: 'https://github.com/gxy5202/VideoRoll',
                 star: 'https://img.shields.io/github/stars/gxy5202/VideoRoll',
-                des: 'A web dom z-index css style controller lib'
+                des: 'a chrome/edge extension to rotate web video'
             },
             {
                 name: 'Nesoft-Vote',
