@@ -23,6 +23,7 @@ export default defineComponent({
     },
     setup() {
         onUpdated(() => {
+            // 增加地址转换
             const setMounted = inject('setMounted') as any;
             setMounted();
         })
@@ -41,6 +42,7 @@ export default defineComponent({
     border-radius: 10px;
     background-color: $cardColor;
     padding: 20px;
+
     @media screen and (min-width: 0) and (max-width: 600px) {
         padding: 10px 0;
         background-color: transparent;
