@@ -27,9 +27,7 @@ export default defineComponent({
             const setMounted = inject('setMounted') as any;
             setMounted();
         })
-    },
-    components: {
-    },
+    }
 });
 </script>
 
