@@ -5,6 +5,7 @@
 -->
 
 <template>
+
     <Head :title="state.artical.artical_name" :search="false"></Head>
     <div id="gomi-artical" class="row">
         <div class="gomi-articalContentLeft col-md-1 col-sm-0"></div>
@@ -17,11 +18,10 @@
         <div></div>
     </div>
     <q-spinner-dots
-        v-show="!state.artical.artical_name"
-        class="gomi-articalContentLoading"
-        color="red"
-        size="3.5em"
-    />
+                    v-show="!state.artical.artical_name"
+                    class="gomi-articalContentLoading"
+                    color="red"
+                    size="3.5em" />
 </template>
 
 <script lang="ts">
@@ -87,6 +87,9 @@ export default defineComponent({
                     console.error(err);
                 });
 
+            // data转换segmentfault.com图片地址
+            // data.replaceAll('')
+
             state.artical = data;
         }
 
@@ -112,8 +115,8 @@ export default defineComponent({
 #gomi-artical {
     padding: 20px;
     background-color: $baseColor;
-    .gomi-articalContentCenter {
-    }
+
+    .gomi-articalContentCenter {}
 }
 
 .gomi-articalContentLoading {
