@@ -88,7 +88,7 @@ export default defineComponent({
                 });
 
             // data转换segmentfault.com图片地址
-            // data.replaceAll('')
+            // data.replaceAll('/image', '/segmentfault.com/image')
 
             state.artical = data;
         }
