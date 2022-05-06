@@ -57,6 +57,9 @@ export default defineComponent({
                 }
             });
 
+            /**
+             * TODO here has some problem
+             */
             const intersectionObserver = new IntersectionObserver(function (entries) {
                 if (entries[0].intersectionRatio <= 0) return;
 
