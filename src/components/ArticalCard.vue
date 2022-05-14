@@ -11,13 +11,12 @@
         <div class="gomi-articalCard-actions">
             <div class="gomi-articalCard-actionsLeft">
                 <q-chip
-                    v-for="(item, index) in tags.split(',')"
-                    :key="index"
-                    clickable
-                    text-color="white"
-                    color="baseColor"
-                    size="sm"
-                >{{ item }}</q-chip>
+                        v-for="(item, index) in tags.split(',')"
+                        :key="index"
+                        clickable
+                        text-color="white"
+                        color="baseColor"
+                        size="sm">{{ item }}</q-chip>
             </div>
             <div class="gomi-articalCard-actionsRight">
                 <div class="gomi-articalCard-info">
@@ -99,10 +98,12 @@ export default defineComponent({
 
     .gomi-articalTitle {
         cursor: pointer;
+
         &:hover {
             color: $highLightColor;
         }
     }
+
     .gomi-articalCard-actions {
         width: 100%;
         display: flex;
@@ -110,6 +111,7 @@ export default defineComponent({
         align-items: flex-end;
         flex: 1;
         padding: 5px 15px;
+
         .gomi-articalCard-actionsRight,
         .gomi-articalCard-actionsLeft {
             display: flex;
@@ -126,11 +128,13 @@ export default defineComponent({
             flex-wrap: wrap;
         }
     }
+
     .gomi-articalCard-info {
         @include flex-center-center;
         margin-right: 10px;
         font-size: 1em;
         color: $fontColor;
+
         .gomi-articalCard-infoIcon {
             margin-right: 3px;
         }

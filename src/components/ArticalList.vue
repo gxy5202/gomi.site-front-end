@@ -8,8 +8,7 @@
     <div class="gomi-articalBox row">
         <div class="gomi-articalLeft col-md-1 col-sm-0 col-xs-0"></div>
         <div class="gomi-articalCenter col-md-8 col-sm-8 col-xs-12">
-            <keep-alive>
-                <q-tabs
+            <q-tabs
                     class="text-white gomi-articalTabType"
                     v-model="state.tab"
                     indicator-color="highlight"
@@ -17,61 +16,54 @@
                     @update:model-value="changeTab"
                     narrow-indicator
                     dense
-                    align="justify"
-                >
-                    <q-tab :no-caps="true" :ripple="true" :tabindex="0" :name="0" label="Recently" />
-                    <q-tab
-                        :no-caps="true"
-                        :ripple="true"
-                        :tabindex="1"
-                        :name="1"
-                        label="Most Views"
-                    />
-                </q-tabs>
-                <q-infinite-scroll
-                    @load="onLoad"
-                    :offset="250"
-                    :initial-index="0"
-                    debounce="400"
-                    ref="infiniteScroll"
-                >
-                    <div
-                        v-for="(item, index) in state.articalList.filter((item) => item.artical_name.toLowerCase().includes(searchValue.toLowerCase()))"
-                        :key="index"
-                        @click="toArtical(item.artical_id)"
-                        class="gomi-articalItem"
-                    >
-                        <ArticalCard
-                            :title="item.artical_name"
-                            :date="item.create_time"
-                            :author="item.artical_author"
-                            :likse="item.artical_likes"
-                            :views="item.artical_views"
-                            :tags="item.artical_tags"
-                        ></ArticalCard>
+                    align="justify">
+                <q-tab :no-caps="true" :ripple="true" :tabindex="0" :name="0" label="Recently" />
+                <q-tab
+                       :no-caps="true"
+                       :ripple="true"
+                       :tabindex="1"
+                       :name="1"
+                       label="Most Views" />
+            </q-tabs>
+            <q-infinite-scroll
+                               @load="onLoad"
+                               :offset="250"
+                               :initial-index="0"
+                               debounce="400"
+                               ref="infiniteScroll">
+                <div
+                     v-for="(item, index) in state.articalList.filter((item) => item.artical_name.toLowerCase().includes(searchValue.toLowerCase()))"
+                     :key="index"
+                     @click="toArtical(item.artical_id)"
+                     class="gomi-articalItem">
+                    <ArticalCard
+                                 :title="item.artical_name"
+                                 :date="item.create_time"
+                                 :author="item.artical_author"
+                                 :likse="item.artical_likes"
+                                 :views="item.artical_views"
+                                 :tags="item.artical_tags"></ArticalCard>
+                </div>
+                <template v-slot:loading>
+                    <div class="row justify-center q-my-md" v-show="state.hasMore">
+                        <q-spinner-dots color="red" size="40px" />
                     </div>
-                    <template v-slot:loading>
-                        <div class="row justify-center q-my-md" v-show="state.hasMore">
-                            <q-spinner-dots color="red" size="40px" />
-                        </div>
-                    </template>
-                    <div v-show="!state.hasMore" class="gomi-loadingEnd">
-                        <q-icon name="mood" />
-                        <span>已经到底啦~</span>
-                    </div>
-                </q-infinite-scroll>
-            </keep-alive>
+                </template>
+                <div v-show="!state.hasMore" class="gomi-loadingEnd">
+                    <q-icon name="mood" />
+                    <span>已经到底啦~</span>
+                </div>
+            </q-infinite-scroll>
         </div>
         <div class="gomi-articalRight col-md-3 col-sm-4 col-xs-0">
             <div class="gomi-articalRight-tags">
                 <q-chip
-                    v-for="(item, index) in state.articalTags"
-                    :key="index"
-                    clickable
-                    icon="bookmark"
-                    text-color="white"
-                    :color="item.color"
-                >{{ item.tag }}</q-chip>
+                        v-for="(item, index) in state.articalTags"
+                        :key="index"
+                        clickable
+                        icon="bookmark"
+                        text-color="white"
+                        :color="item.color">{{ item.tag }}</q-chip>
             </div>
         </div>
     </div>
@@ -193,6 +185,7 @@ export default defineComponent({
 .gomi-articalCenter {
     background-color: $cardColor;
     border-radius: 5px;
+
     .gomi-articalTabType {
         z-index: 1;
         position: sticky;
@@ -201,6 +194,7 @@ export default defineComponent({
         margin: 10px 0;
         border-bottom: 1px solid $borderColor;
     }
+
     .gomi-articalItem {
         margin-bottom: 10px;
 
@@ -226,12 +220,15 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
     .gomi-articalRight-tags {
         position: sticky;
         top: 70px;
     }
 }
+
 @media screen and (min-width: 0) and (max-width: 600px) {
+
     .gomi-articalRight,
     .gomi-articalRight-tags {
         display: none;
@@ -241,6 +238,7 @@ export default defineComponent({
 .gomi-articalSkeleton-hide {
     display: none;
 }
+
 .gomi-input-s {
     width: 8.5rem;
     max-width: 200px;

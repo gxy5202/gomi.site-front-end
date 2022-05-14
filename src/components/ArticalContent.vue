@@ -14,7 +14,7 @@ import { inject, defineComponent, onUpdated } from "vue";
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
 export default defineComponent({
-    name: "ArticalCard",
+    name: "ArticalContent",
     props: {
         content: {
             type: String,

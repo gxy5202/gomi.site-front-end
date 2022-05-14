@@ -21,7 +21,7 @@ import ArticalList from '../components/ArticalList.vue';
 import Head from '../components/Head.vue';
 import '@quasar/extras/ionicons-v5';
 export default defineComponent({
-    name: "Home",
+    name: "Blog",
     props: {},
     setup: () => {
     },
