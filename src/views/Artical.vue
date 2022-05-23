@@ -85,6 +85,7 @@ export default defineComponent({
 
         const getArticalContent = async () => {
             const params = { artical_id };
+            // add token
             const data: any = await get(URL.GET_ARTICAL_CONTENT, params)
                 .catch((err) => {
                     console.error(err);
