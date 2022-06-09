@@ -7,7 +7,7 @@
     <div id="gomi-video-roll">
         <Menu :isFixed="true"></Menu>
         <div class="">
-
+            VideoRoll
         </div>
     </div>
 </template>
@@ -17,100 +17,9 @@ import { defineComponent, ref, onMounted } from "vue";
 import Menu from "../components/Menu.vue";
 
 export default defineComponent({
-    name: "LightRuler",
+    name: "VideoRoll",
     setup() {
-        const ruler = ref(null);
-        const myRuler: any = ref(null);
-        onMounted(() => {
-            myRuler.value = new LightRuler({
-                mountRef: ruler.value,
-                mode: "infinite",
-                scrollElement: "#wrap",
-                rulerId: "hh",
-                width: 30000,
-                height: 30000,
-                style: {
-                    mode: "right",
-                }
-            });
-        });
-
-        const changeFontColor = (value: string) => {
-            myRuler.value.update({
-                fontColor: value,
-            });
-        };
-
-        const changeBackgroundColor = (value: string) => {
-            myRuler.value.update({
-                backgroundColor: value,
-            });
-        };
-
-        const changeTickColor = (value: string) => {
-            myRuler.value.update({
-                tickColor: value,
-            });
-        };
-
-        const changeScale = (value: string) => {
-            myRuler.value.scale(Number(value));
-        };
-
-        const changeUnitFontColor = (value: string) => {
-            myRuler.value.update({
-                unit: {
-                    fontColor: value,
-                    text: 'px'
-                }
-            });
-        }
-
-        const changeUnitBackgroundColor = (value: string) => {
-            myRuler.value.update({
-                unit: {
-                    backgroundColor: value,
-                    text: 'px'
-                }
-            });
-        }
-
-        const changeStyleMode = (value: string) => {
-            myRuler.value.update({
-                mode: value
-            });
-        }
-
-        const changeGap = (value: string) => {
-            myRuler.value.update({
-                gap: Number(value)
-            });
-        };
-
-        const changeDisplay = (value: boolean) => {
-            console.log(value);
-            value ? myRuler.value.show() : myRuler.value.hide();
-        };
         return {
-            ruler,
-            changeFontColor,
-            changeScale,
-            changeBackgroundColor,
-            changeTickColor,
-            changeUnitFontColor,
-            changeUnitBackgroundColor,
-            changeStyleMode,
-            changeGap,
-            changeDisplay,
-            fontColor: ref("#fff"),
-            backgroundColor: ref("#171819"),
-            tickColor: ref("#fff"),
-            scaleNumber: ref(1),
-            unitFontColor: ref('#fff'),
-            unitBackgroundColor: ref('#fff'),
-            styleMode: ref('right'),
-            gap: ref(10),
-            show: ref(true)
         };
     },
     components: {
