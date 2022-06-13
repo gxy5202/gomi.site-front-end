@@ -7,7 +7,9 @@
     <div id="gomi-video-roll">
         <Menu :isFixed="true"></Menu>
         <div class="">
-            <div></div>
+            <div class="gomi-video-roll-banner">
+                <img />
+            </div>
         </div>
     </div>
 </template>
