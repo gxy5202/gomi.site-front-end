@@ -10,6 +10,11 @@
             <div class="gomi-video-roll-banner">
                 <img />
             </div>
+            <div>
+                <ul>
+                    <li v-for="(item, index ) in features" :key="index"></li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -21,7 +26,9 @@ import Menu from "../components/Menu.vue";
 export default defineComponent({
     name: "VideoRoll",
     setup() {
+        const features = ref(['', '', '', '']);
         return {
+            features
         };
     },
     components: {
