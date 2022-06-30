@@ -1,3 +1,8 @@
+/*
+ * @description:
+ * @Author: Gouxinyu
+ * @Date: 2021-04-12 09:38:11
+ */
 import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
     {
@@ -24,6 +29,11 @@ const routes = [
         name: "LightRuler",
         path: "/LightRuler",
         component: () => import("../views/LightRuler.vue"),
+    },
+    {
+        name: "VideoRoll",
+        path: "/VideoRoll",
+        component: () => import("../views/VideoRoll.vue"),
     },
 ];
 
