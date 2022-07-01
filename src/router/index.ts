@@ -33,7 +33,7 @@ const routes = [
     {
         name: "VideoRoll",
         path: "/VideoRoll",
-        component: () => import("../views/VideoRoll.vue"),
+        component: () => import("../views/VideoRoll/Index.vue"),
     },
 ];
 
