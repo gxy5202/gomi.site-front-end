@@ -8,7 +8,10 @@
                       class="column no-wrap flex-center">
         <!-- <q-icon name="style" size="56px" /> -->
         <img class="video-roll-logo" :src="features.logo" />
-
+        <div class="video-roll-chrome-info">
+            <img
+                 src="https://badgen.net/chrome-web-store/users/cokngoholafkeghnhhdlmiadlojpindm?icon=chrome&color=0f9d58" />
+        </div>
         <div class="q-mt-md text-center">
             <p>{{ features.textEn }}</p>
             <p>{{ features.textZh }}</p>
@@ -67,7 +70,7 @@ p {
 }
 
 .video-roll-logo {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     transform: scale(0.8);
 }
 
@@ -92,5 +95,9 @@ p {
         width: 30px;
         height: 30px;
     }
+}
+
+.video-roll-chrome-info {
+    margin-bottom: 10px;
 }
 </style>
