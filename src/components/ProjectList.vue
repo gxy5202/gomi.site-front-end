@@ -2,11 +2,10 @@
     <div id="gomi-project-list">
         <div id="gomi-project-list-box">
             <div
-                v-for="(item, index) in ProjectList.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))"
-                class="gomi-project-item"
-                :key="index"
-                :data-name="index"
-            >
+                 v-for="(item, index) in ProjectList.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))"
+                 class="gomi-project-item"
+                 :key="index"
+                 :data-name="index">
                 <q-card class="my-card text-white gomi-project-card" dark>
                     <q-card-section>
                         <div class="gomi-project-card-title" @click="toTarget(item)">{{ item.name }}</div>
@@ -33,7 +32,7 @@ export default defineComponent({
             default: [{
                 name: 'light-ruler',
                 link: 'https://www.npmjs.com/package/light-ruler',
-                // demo: 'LightRuler',
+                demo: 'LightRuler',
                 star: 'https://img.shields.io/github/stars/gxy5202/LightRuler',
                 des: 'A web page ruler plug-in'
             },
@@ -45,7 +44,8 @@ export default defineComponent({
             },
             {
                 name: 'VideoRoll',
-                link: 'https://github.com/gxy5202/VideoRoll',
+                link: 'https://gomi.site/#/VideoRoll',
+                demo: 'VideoRoll',
                 star: 'https://img.shields.io/github/stars/gxy5202/VideoRoll',
                 des: 'a chrome/edge extension to rotate web video'
             },
@@ -88,6 +88,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import "../scss/var.scss";
+
 #gomi-project-list {
     padding: 20px;
 
@@ -101,11 +102,13 @@ export default defineComponent({
             min-width: 200px;
             margin: 20px;
             flex: 1;
+
             .gomi-project-card-title {
                 font-size: 30px;
                 cursor: pointer;
+
                 &:hover {
-                    color: $highLightColor !important;
+                    color: $highLightColor  !important;
                 }
             }
         }

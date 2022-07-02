@@ -4,9 +4,11 @@
  * @Date: 2021-04-06 16:37:22
  */
 import vue from "@vitejs/plugin-vue";
+import copyFiles from "vite-plugin-copy-files";
 import { transformAssetUrls } from "@quasar/vite-plugin";
 // https://vitejs.dev/config/
 export default {
+    publicDir: "public",
     build: {
         minify: true,
         rollupOptions: {
@@ -22,6 +24,8 @@ export default {
                 },
             },
         },
+        outDir: "dist",
+        assetsDir: "static",
     },
     server: {
         // middlewareMode: "html",
@@ -40,5 +44,11 @@ export default {
         vue({
             template: { transformAssetUrls },
         }),
+        // copyFiles({
+        //     entry: "src",
+        //     root: "assets",
+        //     include: [/\.(png|jpg|jpeg)$/],
+        //     exclude: [/node_modules/],
+        // }),
     ],
 };
