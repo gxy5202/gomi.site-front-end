@@ -6,25 +6,28 @@
 <template>
     <div id="gomi-video-roll">
         <div class="q-pa-md">
-            <q-carousel
-                        v-model="slide"
-                        vertical
-                        transition-prev="slide-down"
-                        transition-next="slide-up"
-                        swipeable
-                        dark
-                        arrows
-                        animated
-                        control-color="white"
-                        navigation
-                        padding
-                        v-model:fullscreen="isFullScreen"
-                        height="100%"
-                        class="bg-grey-10 text-white shadow-1 rounded-borders">
-                <FirstPage :name="data.first"></FirstPage>
-                <SecondPage :name="data.second"></SecondPage>
-                <ThirdPage :name="data.third"></ThirdPage>
-            </q-carousel>
+            <q-responsive :ratio="16 / 9" style="width: 500px; max-width: 100%;">
+                <q-carousel
+                            v-model="slide"
+                            vertical
+                            transition-prev="slide-down"
+                            transition-next="slide-up"
+                            swipeable
+                            dark
+                            arrows
+                            animated
+                            control-color="white"
+                            navigation
+                            padding
+                            v-model:fullscreen="isFullScreen"
+                            height="100%"
+                            class="bg-grey-10 text-white shadow-1 rounded-borders">
+                    <FirstPage :name="data.first"></FirstPage>
+                    <SecondPage :name="data.second"></SecondPage>
+                    <ThirdPage :name="data.third"></ThirdPage>
+                    <FourthPage :name="data.fourth"></FourthPage>
+                </q-carousel>
+            </q-responsive>
         </div>
     </div>
 </template>
@@ -34,6 +37,7 @@ import { defineComponent, ref } from "vue";
 import FirstPage from "./FirstPage.vue";
 import SecondPage from "./SecondPage.vue";
 import ThirdPage from "./ThirdPage.vue";
+import FourthPage from "./FourthPage.vue";
 
 export default defineComponent({
     name: "VideoRoll",
@@ -42,6 +46,7 @@ export default defineComponent({
             first: 'first',
             second: 'second',
             third: 'third',
+            fourth: 'fourth',
         })
         return {
             data,
@@ -52,7 +57,8 @@ export default defineComponent({
     components: {
         FirstPage,
         SecondPage,
-        ThirdPage
+        ThirdPage,
+        FourthPage
     },
 });
 </script>
