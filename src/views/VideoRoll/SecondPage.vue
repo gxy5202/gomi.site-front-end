@@ -23,7 +23,7 @@ export default defineComponent({
     setup() {
         const features = ref({
             id: 'second',
-            img: '/public/imgs/preview1.png',
+            img: '/imgs/preview1.png',
             textEn: `Support Youtube/Bilibili/Vimeo/TikTok/Twitter/Weibo/Instagram, etc.`
         });
 

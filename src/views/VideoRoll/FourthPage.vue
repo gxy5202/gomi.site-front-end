@@ -17,11 +17,11 @@
 
         <div class="video-roll-pay">
             <div class="video-roll-pay-code">
-                <img src="/public/imgs/weChat.jpg" />
+                <img src="/imgs/weChat.jpg" />
                 <p>WeChat</p>
             </div>
             <div class="video-roll-pay-code">
-                <img src="/public/imgs/mayi.jpg" />
+                <img src="/imgs/mayi.jpg" />
                 <p>Alipay</p>
             </div>
         </div>

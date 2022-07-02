@@ -44,7 +44,7 @@ $borderColor: #30363d;
     font-display: block;
     /* or block, swap, fallback, optional */
     src: local('CAIBOJOGRegular.ttf'),
-        url("../../public/fonts/CAIBOJOGRegular.ttf")
+        url("../../fonts/CAIBOJOGRegular.ttf")
 }
 
 @mixin flex-center-center {

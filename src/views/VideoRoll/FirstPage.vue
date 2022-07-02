@@ -46,7 +46,7 @@ export default defineComponent({
     setup() {
         const features = ref({
             id: 'first',
-            logo: '/public/imgs/videoRoll.png',
+            logo: '/imgs/videoRoll.png',
             textEn: 'A web extension that can help you rotate a video',
             textZh: '一款帮助你旋转任何网页中HTML5视频的浏览器插件'
         });
