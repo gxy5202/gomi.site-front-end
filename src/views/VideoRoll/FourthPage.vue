@@ -11,8 +11,8 @@
         <p><b>Video Roll</b> 是一个完全免费并且开源的应用</p>
         <div class="line"></div>
         <div class="video-roll-support">
-            <p>Support me by donations</p>
-            <p>通过捐赠支持我</p>
+            <p>Support us by donating</p>
+            <p>通过捐赠支持我们</p>
         </div>
 
         <div class="video-roll-pay">
