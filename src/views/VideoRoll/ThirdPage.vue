@@ -14,10 +14,11 @@
                  hide-header
                  row-key="name"
                  title="Key Features"
-                 title-class="text-h5"
+                 title-class="text-h6"
+                 separator="none"
                  table-header-style="background-color: #26262a"
-                 card-style="background-color: #18181c; color: #fff"
-                 table-style="background-color: #18181c; color: #fff"
+                 card-style="background-color: #18181c; color: #fff;"
+                 table-style="background-color: #18181c; color: #fff;"
                  hide-bottom
                  :bordered="false" />
     </q-carousel-slide>
@@ -38,6 +39,7 @@ export default defineComponent({
                     label: 'Key Features',
                     align: 'left',
                     sortable: false,
+                    style: 'font-size: 15px',
                     field: (row) => row.name
                 }],
                 rows: [{
