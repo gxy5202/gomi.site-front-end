@@ -11,6 +11,10 @@
         <div class="video-roll-chrome-info">
             <img
                  src="https://badgen.net/chrome-web-store/users/cokngoholafkeghnhhdlmiadlojpindm?icon=chrome&color=0f9d58" />
+            <img
+                 src="https://img.shields.io/github/package-json/v/gxy5202/VideoRoll" />
+            <img
+                 src="https://img.shields.io/github/package-json/license/gxy5202/VideoRoll" />
         </div>
         <div class="q-mt-md text-center">
             <p>{{ features.textEn }}</p>
@@ -98,6 +102,9 @@ p {
 }
 
 .video-roll-chrome-info {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 </style>
