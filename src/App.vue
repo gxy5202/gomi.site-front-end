@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive, provide, readonly } from "vue";
+import { onBeforeRouteUpdate } from 'vue-router';
 import Menu from './components/Menu.vue';
 
 export default defineComponent({
@@ -20,6 +21,9 @@ export default defineComponent({
 		}
 		provide('searchValue', searchValue);
 		provide('updateSearchValue', updateSearchValue);
+		onBeforeRouteUpdate((to) => {
+			console.log(to);
+		})
 		return {
 		}
 	},
@@ -31,6 +35,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import "./scss/var.scss";
+
 html {
 	font-size: 16px;
 	widows: 100%;
@@ -50,36 +55,43 @@ html {
 		font-size: 11px;
 	}
 }
+
 @media screen and (min-width: 376px) and (max-width: 414px) {
 	html {
 		font-size: 12px;
 	}
 }
+
 @media screen and (min-width: 415px) and (max-width: 639px) {
 	html {
 		font-size: 15px;
 	}
 }
+
 @media screen and (min-width: 640px) and (max-width: 719px) {
 	html {
 		font-size: 20px;
 	}
 }
+
 @media screen and (min-width: 720px) and (max-width: 749px) {
 	html {
 		font-size: 22.5px;
 	}
 }
+
 @media screen and (min-width: 750px) and (max-width: 799px) {
 	html {
 		font-size: 23.5px;
 	}
 }
+
 @media screen and (min-width: 800px) {
 	html {
 		font-size: 25px;
 	}
 }
+
 #app {
 	width: 100%;
 	height: 100%;
