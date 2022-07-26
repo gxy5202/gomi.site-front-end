@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, provide, readonly } from "vue";
+import { defineComponent, ref, provide } from "vue";
 import { onBeforeRouteUpdate } from 'vue-router';
 import Menu from './components/Menu.vue';
 
