@@ -24,8 +24,6 @@ export default defineComponent({
 		onBeforeRouteUpdate((to) => {
 			console.log(to);
 		})
-		return {
-		}
 	},
 	components: {
 		Menu
