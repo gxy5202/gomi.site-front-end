@@ -45,7 +45,6 @@ export default defineComponent({
         const setMounted = () => {
             ['h2'].forEach((item) => {
                 const domList = Array.from(document.querySelectorAll(item));
-                console.log(domList);
                 list.value = [...domList];
             });
 
@@ -92,7 +91,7 @@ export default defineComponent({
                 });
 
             // data转换segmentfault.com图片地址
-            data.artical_content = data.artical_content.replaceAll('/img', 'https://segmentfault.com/img')
+            data.artical_content = data.artical_content.replaceAll('/img', 'https://segmentfault.com/img').replaceAll('<img', '<img referrerpolicy="no-referrer"')
 
             state.artical = data;
         }

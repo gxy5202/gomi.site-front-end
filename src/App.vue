@@ -21,9 +21,6 @@ export default defineComponent({
 		}
 		provide('searchValue', searchValue);
 		provide('updateSearchValue', updateSearchValue);
-		onBeforeRouteUpdate((to) => {
-			console.log(to);
-		})
 	},
 	components: {
 		Menu

@@ -3,7 +3,7 @@
  * @Author: Gouxinyu
  * @Date: 2021-04-12 09:38:11
  */
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
     {
         name: "home",
@@ -38,7 +38,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 });
 
