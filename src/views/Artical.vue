@@ -42,6 +42,10 @@ export default defineComponent({
     setup: () => {
         const list = ref<any[]>([]);
         const target = ref('0');
+
+        /**
+         * 文章导航
+         */
         const setMounted = () => {
             ['h2'].forEach((item) => {
                 const domList = Array.from(document.querySelectorAll(item));

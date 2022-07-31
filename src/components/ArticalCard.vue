@@ -96,13 +96,16 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
 
-    .gomi-articalTitle {
+    &:hover {
         cursor: pointer;
 
-        &:hover {
+        .gomi-articalTitle {
             color: $highLightColor;
         }
+
     }
+
+
 
     .gomi-articalCard-actions {
         width: 100%;

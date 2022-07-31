@@ -6,9 +6,10 @@
                  class="gomi-project-item"
                  :key="index"
                  :data-name="index">
-                <q-card class="my-card text-white gomi-project-card" dark>
+                <q-card class="my-card text-white gomi-project-card" dark @click="toTarget(item)">
+                    <img src="https://cdn.quasar.dev/img/mountains.jpg" height="80" />
                     <q-card-section>
-                        <div class="gomi-project-card-title" @click="toTarget(item)">{{ item.name }}</div>
+                        <div class="gomi-project-card-title">{{ item.name }}</div>
                     </q-card-section>
                     <q-separator dark inset />
                     <q-card-section>
@@ -105,9 +106,12 @@ export default defineComponent({
 
             .gomi-project-card-title {
                 font-size: 30px;
+            }
+
+            &:hover {
                 cursor: pointer;
 
-                &:hover {
+                .gomi-project-card-title {
                     color: $highLightColor  !important;
                 }
             }

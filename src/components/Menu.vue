@@ -5,36 +5,32 @@
 -->
 <template>
 	<q-btn
-		:class="{ 'gomi-menuBtn': true, 'gomi-menuBtn-fixed': isFixed, 'z-max': true }"
-		flat
-		round
-		@click="handleMenu"
-	>
+		   :class="{ 'gomi-menuBtn': true, 'gomi-menuBtn-fixed': isFixed, 'z-max': true }"
+		   flat
+		   round
+		   @click="handleMenu">
 		<q-icon v-show="!state.isMenuShow">
 			<svg class="icon-menu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
 				<path
-					d="M682.666667 768v85.333333H213.333333v-85.333333h469.333334z m213.333333-298.666667v85.333334H128v-85.333334h768z m-85.333333-298.666666v85.333333H341.333333V170.666667h469.333334z"
-					fill="#ffffff"
-				/>
+					  d="M682.666667 768v85.333333H213.333333v-85.333333h469.333334z m213.333333-298.666667v85.333334H128v-85.333334h768z m-85.333333-298.666666v85.333333H341.333333V170.666667h469.333334z"
+					  fill="#ffffff" />
 			</svg>
 		</q-icon>
 
 		<q-icon v-show="state.isMenuShow">
 			<svg class="icon-menu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
 				<path
-					d="M512 451.669333l211.2-211.2 60.330667 60.330667-211.2 211.2 211.2 211.2-60.330667 60.330667-211.2-211.2-211.2 211.2-60.330667-60.330667 211.2-211.2-211.2-211.2L300.8 240.469333z"
-					fill="#ffffff"
-				/>
+					  d="M512 451.669333l211.2-211.2 60.330667 60.330667-211.2 211.2 211.2 211.2-60.330667 60.330667-211.2-211.2-211.2 211.2-60.330667-60.330667 211.2-211.2-211.2-211.2L300.8 240.469333z"
+					  fill="#ffffff" />
 			</svg>
 		</q-icon>
 	</q-btn>
 	<div
-		:class="{
-			'gomi-menuBox': true,
-			'gomi-menuBox-show': state.isMenuShow,
-			'gomi-menuBox-hide': !state.isMenuShow
-		}"
-	>
+		 :class="{
+		 	'gomi-menuBox': true,
+		 	'gomi-menuBox-show': state.isMenuShow,
+		 	'gomi-menuBox-hide': !state.isMenuShow
+		 }">
 		<ul class="gomi-menuBoxUl">
 			<li class="gomi-menuItem" v-for="(item, index) in list" :key="index" @click="toPage(item)">
 				<span class="gomi-menuItemText">{{ item.name }}</span>
@@ -133,6 +129,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import "../scss/var.scss";
+
 .icon-menu {
 	width: 100%;
 	height: 100%;
@@ -150,6 +147,7 @@ export default defineComponent({
 	cursor: pointer;
 	@include flex-center-center;
 }
+
 .gomi-menuBox {
 	position: fixed;
 	margin: auto;
@@ -166,16 +164,24 @@ export default defineComponent({
 		width: 100%;
 		height: 100%;
 		padding-top: 30px;
+
 		.gomi-menuItem {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			list-style-type: none;
 			color: #fff;
 			font-family: CAIBOJOGRegular;
 			font-size: 3rem;
 			margin: 5px;
 			cursor: pointer;
-			&:hover {
-				color: $highLightColor;
+
+			.gomi-menuItemText {
+				&:hover {
+					color: $highLightColor;
+				}
 			}
+
 		}
 	}
 }
