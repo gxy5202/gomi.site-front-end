@@ -7,7 +7,7 @@
                  :key="index"
                  :data-name="index">
                 <q-card class="my-card text-white gomi-project-card" dark @click="toTarget(item)">
-                    <img src="https://cdn.quasar.dev/img/mountains.jpg" height="80" />
+                    <img :src="item.img" height="200" />
                     <q-card-section>
                         <div class="gomi-project-card-title">{{ item.name }}</div>
                     </q-card-section>
@@ -34,17 +34,20 @@ export default defineComponent({
                 name: 'light-ruler',
                 link: 'https://www.npmjs.com/package/light-ruler',
                 demo: 'LightRuler',
+                img: '',
                 star: 'https://img.shields.io/github/stars/gxy5202/LightRuler',
                 des: 'A web page ruler plug-in'
             },
             {
                 name: 'parcel-namer-hashless',
+                img: '',
                 link: 'https://www.npmjs.com/package/parcel-namer-hashless',
                 star: 'https://img.shields.io/github/stars/gxy5202/parcel-namer-hashless',
                 des: 'This plugin will help you remove the hash from a bundle file name(parcel v2)'
             },
             {
                 name: 'VideoRoll',
+                img: '',
                 link: 'https://gomi.site/#/VideoRoll',
                 demo: 'VideoRoll',
                 star: 'https://img.shields.io/github/stars/gxy5202/VideoRoll',
@@ -52,12 +55,14 @@ export default defineComponent({
             },
             {
                 name: 'Nesoft-Vote',
+                img: '',
                 link: 'https://github.com/gxy5202/Nesoft-Vote',
                 star: 'https://img.shields.io/github/stars/gxy5202/Nesoft-Vote',
                 des: '基于微信小程序的投票多功能系统'
             },
             {
                 name: 'UE-Helper-Chrome-Extension',
+                img: '',
                 link: 'https://chrome.google.com/webstore/detail/ue-helper/mkjblagjddaejickpddjeadifkeagaoo?hl=zh-CN',
                 star: 'https://img.shields.io/github/stars/gxy5202/UE-Helper-Chrome-Extension',
                 des: 'a chrome extension for Sefonsoft UE product'

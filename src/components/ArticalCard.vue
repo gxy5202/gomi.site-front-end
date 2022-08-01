@@ -105,8 +105,6 @@ export default defineComponent({
 
     }
 
-
-
     .gomi-articalCard-actions {
         width: 100%;
         display: flex;
