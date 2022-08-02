@@ -7,13 +7,19 @@
                  :key="index"
                  :data-name="index">
                 <q-card class="my-card text-white gomi-project-card" dark @click="toTarget(item)">
-                    <img :src="item.img" height="200" />
+                    <q-img :src="item.img" fit="contain" style="height: 200px;">
+                        <div class="gomi-project-card-title absolute-bottom text-h6">
+                            {{ item.name }}
+                        </div>
+                    </q-img>
+
+                    <!-- <img class="project-post" :src="item.img" height="200" />
                     <q-card-section>
                         <div class="gomi-project-card-title">{{ item.name }}</div>
-                    </q-card-section>
-                    <q-separator dark inset />
+                    </q-card-section> -->
+                    <!-- <q-separator dark inset /> -->
                     <q-card-section>
-                        <div class="text-subtitle3">{{ item.des }}</div>
+                        <div class="text-subtitle3" :title="item.des">{{ item.des }}</div>
                     </q-card-section>
                 </q-card>
             </div>
@@ -34,20 +40,20 @@ export default defineComponent({
                 name: 'light-ruler',
                 link: 'https://www.npmjs.com/package/light-ruler',
                 demo: 'LightRuler',
-                img: '',
+                img: '/imgs/light-ruler.png',
                 star: 'https://img.shields.io/github/stars/gxy5202/LightRuler',
                 des: 'A web page ruler plug-in'
             },
             {
                 name: 'parcel-namer-hashless',
-                img: '',
+                img: '/imgs/parcel.png',
                 link: 'https://www.npmjs.com/package/parcel-namer-hashless',
                 star: 'https://img.shields.io/github/stars/gxy5202/parcel-namer-hashless',
                 des: 'This plugin will help you remove the hash from a bundle file name(parcel v2)'
             },
             {
                 name: 'VideoRoll',
-                img: '',
+                img: '/imgs/text.png',
                 link: 'https://gomi.site/#/VideoRoll',
                 demo: 'VideoRoll',
                 star: 'https://img.shields.io/github/stars/gxy5202/VideoRoll',
@@ -55,14 +61,14 @@ export default defineComponent({
             },
             {
                 name: 'Nesoft-Vote',
-                img: '',
+                img: '/imgs/51.png',
                 link: 'https://github.com/gxy5202/Nesoft-Vote',
                 star: 'https://img.shields.io/github/stars/gxy5202/Nesoft-Vote',
-                des: '基于微信小程序的投票多功能系统'
+                des: '基于微信小程序的投票多功能系统, 51校园展'
             },
             {
                 name: 'UE-Helper-Chrome-Extension',
-                img: '',
+                img: '/imgs/ue-helper.png',
                 link: 'https://chrome.google.com/webstore/detail/ue-helper/mkjblagjddaejickpddjeadifkeagaoo?hl=zh-CN',
                 star: 'https://img.shields.io/github/stars/gxy5202/UE-Helper-Chrome-Extension',
                 des: 'a chrome extension for Sefonsoft UE product'
@@ -108,6 +114,17 @@ export default defineComponent({
             min-width: 200px;
             margin: 20px;
             flex: 1;
+
+            .text-subtitle3 {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .project-post {
+                object-fit: cover;
+                border-bottom: 1px solid #3e3939;
+            }
 
             .gomi-project-card-title {
                 font-size: 30px;

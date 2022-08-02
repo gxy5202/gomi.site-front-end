@@ -13,27 +13,25 @@
                 <q-toolbar-title>{{ title }}</q-toolbar-title>
                 <slot></slot>
                 <q-input
-                    v-if="search"
-                    rounded
-                    dark
-                    dense
-                    debounce="400"
-                    standout
-                    placeholder="search"
-                    v-model="searchValue"
-                    @update:model-value="updateSearchValue"
-                    input-class="text-left"
-                    class="gomi-input-s"
-                    type="search"
-                >
+                         v-if="search"
+                         rounded
+                         dark
+                         dense
+                         debounce="400"
+                         standout
+                         placeholder="search"
+                         v-model="searchValue"
+                         @update:model-value="updateSearchValue"
+                         input-class="text-left"
+                         class="gomi-input-s"
+                         type="search">
                     <template v-slot:append>
                         <q-icon v-if="searchValue === ''" name="search" />
                         <q-icon
-                            v-else
-                            name="clear"
-                            class="cursor-pointer"
-                            @click="searchValue = ''"
-                        />
+                                v-else
+                                name="clear"
+                                class="cursor-pointer"
+                                @click="searchValue = ''" />
                     </template>
                 </q-input>
                 <Menu></Menu>
@@ -59,7 +57,6 @@ export default defineComponent({
         }
     },
     setup: () => {
-
         const searchValue = ref('');
         const updateSearchValue = inject('updateSearchValue');
 
@@ -93,10 +90,12 @@ export default defineComponent({
         }
     }
 }
+
 .gomi-fix-top {
     position: fixed;
     top: 0;
 }
+
 .gomi-input-s {
     width: 8.5rem;
     max-width: 200px;

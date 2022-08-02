@@ -1,19 +1,14 @@
 /*
- * @description: 
+ * @description: 鼠标点
  * @Author: Gouxinyu
  * @Date: 2021-04-12 08:53:41
  */
-/*
- * @description: 
- * @Author: Gouxinyu
- * @Date: 2021-04-12 08:53:41
- */
-import { h } from 'vue'
+import { h } from "vue";
 
 const DecorateCircle = (props: any, context: any) => {
-  return h(`div`, context.attrs, context.slots)
-}
+    return h(`div`, context.attrs, context.slots);
+};
 
-DecorateCircle.props = ['']
+DecorateCircle.props = [""];
 
 export default DecorateCircle;
