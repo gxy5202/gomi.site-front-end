@@ -95,7 +95,7 @@ export default defineComponent({
                 });
 
             // data转换segmentfault.com图片地址
-            data.artical_content = data.artical_content.replaceAll('/img', 'https://segmentfault.com/img').replaceAll('<img', '<img referrerpolicy="no-referrer"')
+            data.artical_content = data.artical_content.replaceAll('/img', 'https://segmentfault.com/img').replaceAll('<img', '<img referrerpolicy="no-referrer"');
 
             state.artical = data;
         }

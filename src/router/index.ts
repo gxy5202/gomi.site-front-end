@@ -1,9 +1,9 @@
 /*
- * @description:
+ * @description: router
  * @Author: Gouxinyu
  * @Date: 2021-04-12 09:38:11
  */
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 const routes = [
     {
         name: "home",
@@ -38,15 +38,15 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
 });
 
 /**
  * 添加路由守卫, loading状态
  */
-router.beforeResolve((to) => {
-    console.log(to);
-});
+// router.beforeResolve((to) => {
+//     console.log(to);
+// });
 
 export default router;

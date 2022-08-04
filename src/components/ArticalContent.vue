@@ -10,6 +10,9 @@
 
 <script lang="ts">
 import { inject, defineComponent, onUpdated } from "vue";
+// import '/public/libs/prism/prism';
+// import '/public/libs/prism/prism.css'
+
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
 export default defineComponent({
@@ -26,7 +29,7 @@ export default defineComponent({
             // 增加地址转换
             const setMounted = inject('setMounted') as any;
             setMounted();
-        })
+        });
     }
 });
 </script>
