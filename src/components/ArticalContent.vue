@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import { inject, defineComponent, onUpdated } from "vue";
-
 // import { QIcon } from 'quasar';
 import '@quasar/extras/ionicons-v5';
 export default defineComponent({
@@ -22,6 +21,7 @@ export default defineComponent({
         }
     },
     setup() {
+        // TODO highlight code
         onUpdated(() => {
             // 增加地址转换
             const setMounted = inject('setMounted') as any;
