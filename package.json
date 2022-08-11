@@ -16,7 +16,8 @@
         "quasar": "^2.4.11",
         "scss": "^0.2.4",
         "vue": "^3.2.37",
-        "vue-router": "^4.0.6"
+        "vue-router": "^4.0.6",
+        "yarn": "^1.22.19"
     },
     "devDependencies": {
         "@quasar/vite-plugin": "^1.0.4",
