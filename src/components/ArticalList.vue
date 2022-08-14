@@ -72,7 +72,7 @@
 <script lang="ts">
 import { get } from '../utils/axios';
 import URL from '../request/URL';
-import { onMounted, ref, reactive, inject, defineComponent } from "vue";
+import { ref, reactive, inject, defineComponent } from "vue";
 import { useRouter } from 'vue-router';
 import ArticalCard from './ArticalCard.vue';
 
@@ -149,6 +149,9 @@ export default defineComponent({
             })
         }
 
+        /**
+         * 切换页签
+         */
         const changeTab = (value: any) => {
             state.currentPage.pageNo = 1;
             state.articalList = [];
@@ -185,6 +188,7 @@ export default defineComponent({
 .gomi-articalCenter {
     background-color: $cardColor;
     border-radius: 5px;
+    max-width: 1280px;
 
     .gomi-articalTabType {
         z-index: 1;
@@ -227,7 +231,7 @@ export default defineComponent({
     }
 }
 
-@media screen and (min-width: 0) and (max-width: 600px) {
+@media screen and (min-width: 0) and (max-width: 820px) {
 
     .gomi-articalRight,
     .gomi-articalRight-tags {

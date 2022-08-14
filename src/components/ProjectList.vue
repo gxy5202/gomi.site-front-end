@@ -143,9 +143,16 @@ export default defineComponent({
 
 @media screen and (min-width: 800px) {
     #gomi-project-list {
+
         .gomi-project-item {
             min-width: 450px !important;
         }
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 600px) {
+    #gomi-project-list {
+        padding: 0;
     }
 }
 </style>

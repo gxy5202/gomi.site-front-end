@@ -28,7 +28,7 @@
 import { onMounted, ref, reactive, defineComponent, watchEffect, provide } from "vue";
 import Head from '../components/Head.vue';
 import ArticalContent from '../components/ArticalContent.vue';
-import TitleNav from '../components/titleNav.vue';
+import TitleNav from '../components/TitleNav.vue';
 import { get } from '../utils/axios';
 import URL from '../request/URL';
 import { useRouter } from 'vue-router';

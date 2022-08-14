@@ -5,6 +5,7 @@
 -->
 <template>
     <div id="gomi-blog">
+
         <Head title="Blog" class="z-top"></Head>
         <div class="gomi-blogBody">
             <div class="gomi-blogList">
@@ -39,9 +40,17 @@ export default defineComponent({
 #gomi-blog {
     height: 100%;
     background-color: $baseColor;
+
     .gomi-blogBody {
         padding: 20px;
         margin-left: calc(100vw - 100%);
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 600px) {
+
+    #gomi-blog .gomi-blogBody {
+        padding: 0;
     }
 }
 </style>
