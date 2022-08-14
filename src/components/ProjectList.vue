@@ -1,12 +1,14 @@
 <template>
     <div id="gomi-project-list">
         <div id="gomi-project-list-box">
-            <div
-                 v-for="(item, index) in ProjectList.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))"
-                 class="gomi-project-item"
-                 :key="index"
-                 :data-name="index">
-                <q-card class="my-card text-white gomi-project-card" dark @click="toTarget(item)">
+            <q-intersection
+                            v-for="(item, index) in ProjectList.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))"
+                            class="gomi-project-item"
+                            once
+                            transition="scale"
+                            :key="index"
+                            :data-name="index">
+                <q-card :ratio="16 / 9" class="my-card text-white gomi-project-card" dark @click="toTarget(item)">
                     <q-img :src="item.img" fit="contain" style="height: 200px;">
                         <div class="gomi-project-card-title absolute-bottom text-h6">
                             {{ item.name }}
@@ -22,7 +24,14 @@
                         <div class="text-subtitle3" :title="item.des">{{ item.des }}</div>
                     </q-card-section>
                 </q-card>
-            </div>
+            </q-intersection>
+            <!-- <div
+                 v-for="(item, index) in ProjectList.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))"
+                 class="gomi-project-item"
+                 :key="index"
+                 :data-name="index">
+
+            </div> -->
         </div>
     </div>
 </template>

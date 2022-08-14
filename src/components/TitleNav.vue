@@ -12,8 +12,7 @@
                 :class="{ 'title-nav-active': target === String(index), 'title-nav-item': true }"
                 :key="index"
                 :data-name="index"
-                @click="toTarget(index)"
-            >{{ item.name }}</li>
+                @click="toTarget(index)">{{ item.name }}</li>
         </ul>
     </div>
 </template>

@@ -12,7 +12,7 @@
         <div class="gomi-articalContentCenter col-md-8 col-sm-12 col-xs-12">
             <ArticalContent :content="state.artical.artical_content"></ArticalContent>
         </div>
-        <div class="gomi-articalContentRight col-md-3 col-sm-0">
+        <div class="gomi-articalContentRight col-xl-3 col-lg-3 col-md-0 col-sm-0">
             <TitleNav :nav-list="list" :target="target"></TitleNav>
         </div>
         <div></div>
@@ -133,5 +133,11 @@ export default defineComponent({
     top: 0;
     bottom: 0;
     right: 0;
+}
+
+@media screen and (min-width: 0) and (max-width: 820px) {
+    .gomi-articalContentRight {
+        display: none;
+    }
 }
 </style>

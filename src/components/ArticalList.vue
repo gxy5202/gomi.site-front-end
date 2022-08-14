@@ -7,7 +7,7 @@
 <template>
     <div class="gomi-articalBox row">
         <div class="gomi-articalLeft col-md-1 col-sm-0 col-xs-0"></div>
-        <div class="gomi-articalCenter col-md-8 col-sm-8 col-xs-12">
+        <div class="gomi-articalCenter col-md-8 col-sm-12 col-xs-12">
             <q-tabs
                     class="text-white gomi-articalTabType"
                     v-model="state.tab"
