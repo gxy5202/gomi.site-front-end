@@ -135,7 +135,7 @@ export default defineComponent({
     right: 0;
 }
 
-@media screen and (min-width: 0) and (max-width: 820px) {
+@media screen and (min-width: 0) and (max-width: 1440px) {
     .gomi-articalContentRight {
         display: none;
     }
