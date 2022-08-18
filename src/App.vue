@@ -19,6 +19,7 @@ export default defineComponent({
 		const updateSearchValue = (value: string) => {
 			searchValue.value = value;
 		}
+		console.log(123);
 		provide('searchValue', searchValue);
 		provide('updateSearchValue', updateSearchValue);
 	},
