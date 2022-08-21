@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * @description:
  * @Author: Gouxinyu
@@ -43,6 +44,6 @@ export default {
     plugins: [
         vue({
             template: { transformAssetUrls },
-        }),
+        })
     ],
 };
