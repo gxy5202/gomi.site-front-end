@@ -20,6 +20,9 @@ export default defineComponent({
 			searchValue.value = value;
 		}
 
+		// add loading
+		onBeforeRouteUpdate(() => { });
+
 		provide('searchValue', searchValue);
 		provide('updateSearchValue', updateSearchValue);
 	},
