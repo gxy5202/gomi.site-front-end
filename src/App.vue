@@ -21,7 +21,7 @@ export default defineComponent({
 		}
 
 		// add loading
-		onBeforeRouteUpdate(() => { });
+		// onBeforeRouteUpdate(() => { });
 
 		provide('searchValue', searchValue);
 		provide('updateSearchValue', updateSearchValue);
