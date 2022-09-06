@@ -5,7 +5,7 @@
  */
 import axios from "axios";
 //创建axios的一个实例
-var instance = axios.create({
+const instance = axios.create({
     baseURL: "/api", //接口统一域名
     timeout: 6000, //设置超时
 });

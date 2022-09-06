@@ -4,6 +4,7 @@
  * @Date: 2021-04-12 09:38:11
  */
 import { createRouter, createWebHistory } from "vue-router";
+
 const routes = [
     {
         name: "home",
